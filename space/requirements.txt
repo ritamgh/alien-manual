@@ -1,0 +1,9 @@
+# User interface (the only page of the demo).
+gradio>=5.0
+# Base model and tokenizer loading (tiny-aya needs a recent release).
+transformers>=4.50
+# Loads the tuned LoRA adapter on top of the base model.
+peft>=0.13
+# Tensor backend and device placement for generation.
+torch>=2.4
+accelerate>=1.0
