@@ -280,3 +280,10 @@ If the HF token has no write scope or you do not want the adapters on the Hub, s
 `ALIEN_NO_UPLOAD=1` before the training scripts. Nothing is uploaded, `checkpoint.revision` is
 null, and the adapter stays under `--work-dir` (lost if the Colab runtime is deleted). Pass any
 `--hub-repo` value, e.g. `local/alien-sft`; it is only recorded in the results file.
+
+## 6. One command, background-safe (Colab)
+
+`nohup bash scripts/run_all_colab.sh /content/work > /content/run.log 2>&1 &` runs steps b to f in order
+(probe, baselines, SFT, GRPO with the fallback, report) without needing the browser page to stay attached.
+Poll with `!tail -n 20 /content/run.log` from a short cell; the last line is `ALL DONE` when it has finished and
+every `check_results.py` printed `OK`. Needs `HF_TOKEN` in the environment. It stops at the first failing step.
