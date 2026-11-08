@@ -345,7 +345,7 @@ def train(
         "per_device_train_batch_size": hparams["per_device_train_batch_size"],
         "gradient_accumulation_steps": hparams["gradient_accumulation_steps"],
         "learning_rate": hparams["learning_rate"],
-        "warmup_ratio": hparams["warmup_ratio"],  # VERIFY ON COLAB: transformers 5 may warn
+        "warmup_steps": hparams["warmup_ratio"],  # transformers 5: a float below 1 is a ratio of total steps
         "fp16": hparams["fp16"],
         "logging_steps": hparams["logging_steps"],
         "save_strategy": "steps",
