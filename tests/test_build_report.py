@@ -35,7 +35,7 @@ def splits():
 
 @pytest.fixture(scope="module")
 def tasks(splits):
-    return splits.heldout[:200]  # 115 trap tasks and 85 normal tasks for seed 0
+    return splits.heldout[:200]  # 162 trap tasks and 38 normal tasks for seed 0
 
 
 def oracle_outputs(tasks):
@@ -105,8 +105,8 @@ def test_score_all_scores_in_task_order_with_literal_counts(tasks):
     assert sum(s.tp for s in scores) == 200
     assert sum(s.prior_trap for s in scores) == 0
     habit = scores_for(tasks, habit_outputs(tasks))
-    assert sum(s.prior_trap for s in habit) == 115
-    assert sum(s.tp for s in habit) == 85
+    assert sum(s.prior_trap for s in habit) == 162
+    assert sum(s.tp for s in habit) == 38
 
 
 def test_score_all_names_the_missing_example_instead_of_scoring_zero(tasks):
@@ -132,12 +132,12 @@ def test_oracle_tuned_against_habit_base_is_met_with_literal_gaps(tasks):
     assert sc001["verdict"] == "met"
     for baseline in ("vs_base", "vs_prompt_only"):
         trap = sc001["gaps"][baseline]["prior_trap_rate"]
-        # baseline 115/115 minus tuned 0/115: an improvement of 1.0, not -1.0
+        # baseline 162/162 minus tuned 0/162: an improvement of 1.0, not -1.0
         assert trap == {"gap": 1.0, "ci_low": 1.0, "ci_high": 1.0}
         f1 = sc001["gaps"][baseline]["tool_call_f1"]
-        # base f1 = 2*85 / (2*85 + 115 + 115) = 0.425, tuned f1 = 1.0
-        assert f1["gap"] == pytest.approx(0.575, abs=1e-9)
-        assert 0.4 < f1["ci_low"] <= 0.575 <= f1["ci_high"] < 0.75
+        # base f1 = 2*38 / (2*38 + 162 + 162) = 0.19, tuned f1 = 1.0
+        assert f1["gap"] == pytest.approx(0.81, abs=1e-9)
+        assert 0.7 < f1["ci_low"] <= 0.81 <= f1["ci_high"] < 0.9
 
 
 def test_vs_prompt_only_uses_the_prompt_only_scores_not_the_base_scores(tasks):
@@ -284,7 +284,7 @@ def test_build_final_is_a_valid_final_document_with_the_contract_fields(tasks):
     assert doc["report_path"] == "report.md"
     assert doc["seed"] == 0
     assert doc["sc001"]["verdict"] == "met"
-    assert doc["models"]["base"]["tool_call_f1"]["value"] == pytest.approx(0.425)
+    assert doc["models"]["base"]["tool_call_f1"]["value"] == pytest.approx(0.19)
     assert doc["models"]["tuned"]["tool_call_f1"]["value"] == 1.0
 
 
@@ -349,7 +349,7 @@ def test_met_report_starts_with_the_verdict_and_the_smallest_gap(tasks):
     text = build_report.render_report(final_for(tasks), PROBE, trap_doc=DOC_TEXT)
     first = text.splitlines()[0]
     assert first.startswith("SC-001 met")
-    assert "57.5 points" in first  # the smallest gap: tool_call_f1, 1.0 - 0.425
+    assert "81.0 points" in first  # the smallest gap: tool_call_f1, 1.0 - 0.19
 
 
 def test_not_met_report_says_so_on_the_first_line_without_soft_words(tasks):
@@ -365,8 +365,8 @@ def test_not_met_report_says_so_on_the_first_line_without_soft_words(tasks):
 def test_report_has_the_four_metric_table_with_intervals_for_four_models(tasks):
     text = build_report.render_report(final_for(tasks), None)
     assert "| Metric | Base | Prompt-only | SFT | Tuned |" in text
-    # base tool_call_f1 is exactly 0.425 with a CI around it; tuned is 100.0%
-    assert re.search(r"\| Tool-call F1.*\| 42\.5% \[\d+\.\d%, \d+\.\d%\] \|", text)
+    # base tool_call_f1 is exactly 0.19 with a CI around it; tuned is 100.0%
+    assert re.search(r"\| Tool-call F1.*\| 19\.0% \[\d+\.\d%, \d+\.\d%\] \|", text)
     assert "100.0% [100.0%, 100.0%]" in text
     for name in ("Prior-trap rate", "Tool-call validity", "Normal-tool F1"):
         assert name in text

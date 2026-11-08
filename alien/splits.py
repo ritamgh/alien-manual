@@ -2,14 +2,19 @@
 
 Public API:
 
-* ``make_splits(seed, hardness=0, tools_per_domain=8) -> Splits``. The 12
-  domains are shuffled by seed into 6 train, 3 held-out and 3 dev domains
-  (dev is a separate pool so tuning against dev never peeks at held-out).
-  One twist family is held out per seed: train has none of it, held-out has
-  only that family plus untwisted normal tools. Sizes: ``TRAIN_SIZE`` 600,
-  ``HELDOUT_SIZE`` 240, ``DEV_SIZE`` 100. ``hardness`` is the E-1 hook; it
-  only changes tool docs (see ``alien.generator``).
-* ``Splits(train, dev, heldout, heldout_twist, seed, hardness)``.
+* ``make_splits(seed, hardness=0, tools_per_domain=8, holdout="tools") -> Splits``.
+  The 12 domains are shuffled by seed into 6 train, 3 held-out and 3 dev
+  domains (dev is a separate pool so tuning against dev never peeks at
+  held-out), so train, dev and held-out share no tool and no domain. Sizes:
+  ``TRAIN_SIZE`` 600, ``HELDOUT_SIZE`` 240, ``DEV_SIZE`` 100. ``hardness`` is
+  the E-1 hook; it only changes tool docs (see ``alien.generator``).
+  ``holdout="tools"`` (default) holds out whole unseen tools: all four twist
+  families appear in train, dev and held-out. ``holdout="twist"`` reproduces
+  the first run: one twist family per seed is held out, train has none of it,
+  held-out has only that family plus untwisted normal tools.
+* ``Splits(train, dev, heldout, heldout_twist, seed, hardness)``;
+  ``heldout_twist`` is ``None`` when no twist family is held out
+  (``holdout="tools"``).
 * ``assert_no_leak(splits)`` raises ``LeakError``; ``make_splits`` calls it.
 * ``splits_to_json(splits) -> str`` / ``splits_from_json(text) -> Splits``.
 """
@@ -38,7 +43,7 @@ class Splits:
     train: list[Task]
     dev: list[Task]
     heldout: list[Task]
-    heldout_twist: str
+    heldout_twist: str | None
     seed: int
     hardness: int
 
@@ -74,14 +79,16 @@ def _twists(tasks: list[Task]) -> set[str]:
 
 def assert_no_leak(splits: Splits) -> None:
     """Raise ``LeakError`` if train shares a tool name, domain or twist family with
-    held-out, or if dev shares a tool name or domain with train or held-out."""
+    held-out, or if dev shares a tool name or domain with train or held-out.
+    The twist check applies only when a family is held out (``heldout_twist`` set)."""
     train, dev, held = splits.train, splits.dev, splits.heldout
     shared_tools = _tool_names(train) & _tool_names(held)
     if shared_tools:
         raise LeakError(f"held-out tools in train: {sorted(shared_tools)}")
-    shared_twists = _twists(train) & (_twists(held) | {splits.heldout_twist})
-    if shared_twists:
-        raise LeakError(f"held-out twists in train: {sorted(shared_twists)}")
+    if splits.heldout_twist is not None:
+        shared_twists = _twists(train) & (_twists(held) | {splits.heldout_twist})
+        if shared_twists:
+            raise LeakError(f"held-out twists in train: {sorted(shared_twists)}")
     domains = {name: {t.tool.domain for t in tasks}
                for name, tasks in (("train", train), ("dev", dev), ("heldout", held))}
     for a, b in (("train", "heldout"), ("dev", "train"), ("dev", "heldout")):
@@ -92,19 +99,28 @@ def assert_no_leak(splits: Splits) -> None:
             raise LeakError("dev shares tool names with train or held-out")
 
 
-def make_splits(seed: int, hardness: int = 0, tools_per_domain: int = 8) -> Splits:
+def make_splits(seed: int, hardness: int = 0, tools_per_domain: int = 8,
+                holdout: str = "tools") -> Splits:
+    if holdout not in ("tools", "twist"):
+        raise ValueError(f"holdout must be 'tools' or 'twist', got {holdout!r}")
     rng = random.Random(f"splits:{seed}")
     domains = sorted(DOMAINS)
     rng.shuffle(domains)
     train_d = domains[:_N_TRAIN_DOMAINS]
     held_d = domains[_N_TRAIN_DOMAINS:_N_TRAIN_DOMAINS + _N_HELDOUT_DOMAINS]
     dev_d = domains[_N_TRAIN_DOMAINS + _N_HELDOUT_DOMAINS:]
-    held_twist = rng.choice(TWISTS)
-    train_twists = [t for t in TWISTS if t != held_twist]
+    if holdout == "twist":
+        held_twist = rng.choice(TWISTS)
+        train_twists = [t for t in TWISTS if t != held_twist]
+        train_pattern = [None, *train_twists]
+        held_pattern = [held_twist, None, held_twist, None, held_twist]
+    else:
+        held_twist = None
+        train_pattern = held_pattern = [None, *TWISTS]
     used: set[str] = set()
     pools = {
-        "train": (train_d, [None, *train_twists], TRAIN_SIZE),
-        "heldout": (held_d, [held_twist, None, held_twist, None, held_twist], HELDOUT_SIZE),
+        "train": (train_d, train_pattern, TRAIN_SIZE),
+        "heldout": (held_d, held_pattern, HELDOUT_SIZE),
         "dev": (dev_d, [None, *TWISTS], DEV_SIZE),
     }
     built = {}

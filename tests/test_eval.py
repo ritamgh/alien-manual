@@ -186,7 +186,7 @@ def test_oracle_generator_scores_perfect_and_habit_generator_falls_in_every_trap
     heldout, tmp_path
 ):
     # Breaks if outputs are paired with the wrong task, or variants share one progress file.
-    tasks = heldout[:40]  # 24 trap tasks, 16 normal tasks
+    tasks = heldout[:40]  # 29 trap tasks, 11 normal tasks
     evaluated = evaluate_variants(
         tasks,
         {"base": lookup_generator(tasks, "habit"),
@@ -196,10 +196,10 @@ def test_oracle_generator_scores_perfect_and_habit_generator_falls_in_every_trap
     )
     habit, oracle = evaluated["models"]["base"], evaluated["models"]["prompt_only"]
     assert habit["prior_trap_rate"]["value"] == 1.0
-    assert habit["prior_trap_rate"]["n"] == 24
-    assert habit["tool_call_f1"]["value"] == pytest.approx(0.4)  # 2*16 / (2*16 + 24 + 24)
+    assert habit["prior_trap_rate"]["n"] == 29
+    assert habit["tool_call_f1"]["value"] == pytest.approx(0.275)  # 2*11 / (2*11 + 29 + 29)
     assert habit["normal_tool_f1"]["value"] == 1.0
-    assert habit["normal_tool_f1"]["n"] == 16
+    assert habit["normal_tool_f1"]["n"] == 11
     assert habit["tool_call_validity"]["value"] == 1.0
     assert oracle["prior_trap_rate"]["value"] == 0.0
     assert oracle["tool_call_f1"]["value"] == 1.0
@@ -411,7 +411,7 @@ def test_fake_habit_dry_run_reports_every_trap_as_a_prior_trap(tmp_path):
     models = json.loads(out.read_text())["models"]
     assert models["base"]["prior_trap_rate"]["value"] == 1.0
     assert models["prompt_only"]["prior_trap_rate"]["value"] == 1.0
-    assert models["base"]["prior_trap_rate"]["n"] == 115
+    assert models["base"]["prior_trap_rate"]["n"] == 162
 
 
 def test_cli_exits_nonzero_and_writes_nothing_when_validation_fails(tmp_path, capsys):
@@ -605,9 +605,10 @@ def test_cli_refuses_a_second_adapter_in_one_progress_dir(tmp_path, capsys):
 
 # ---- --hardness through the CLI (E-1) -------------------------------------------------------
 
-# First held-out task of make_splits(0, 1): hardness 1 rewrites the parameter descriptions.
-H1_AMOUNT_DESC = "Signed change to the range; positive values raise it, negative values lower it."
-H0_AMOUNT_DESC = "Signed change to the range."
+# First held-out task of make_splits(0, 1) (an odd_unit set tool): hardness 1 rewrites the
+# parameter descriptions.
+H1_AMOUNT_DESC = "The new range, in hundredths of a metre (100 per whole metre)."
+H0_AMOUNT_DESC = "The new range."
 
 
 def spy_on_eval_tasks(monkeypatch):
@@ -628,14 +629,14 @@ def test_cli_hardness_1_evaluates_on_the_hardness_1_split(tmp_path, monkeypatch)
     _, code = fake_run(tmp_path, "--hardness", "1")
     assert code == 0
     assert seen["tasks"][0].id == "heldout-0000"
-    assert seen["tasks"][0].tool.doc.endswith(f"- amount (integer): {H1_AMOUNT_DESC}")
+    assert seen["tasks"][0].tool.doc.endswith(f"- level (integer): {H1_AMOUNT_DESC}")
 
 
 def test_cli_default_hardness_is_0(tmp_path, monkeypatch):
     seen = spy_on_eval_tasks(monkeypatch)
     _, code = fake_run(tmp_path)
     assert code == 0
-    assert seen["tasks"][0].tool.doc.endswith(f"- amount (integer): {H0_AMOUNT_DESC}")
+    assert seen["tasks"][0].tool.doc.endswith(f"- level (integer): {H0_AMOUNT_DESC}")
 
 
 @pytest.mark.parametrize("value", ["-1", "99"])
@@ -660,7 +661,7 @@ def test_cli_accepts_a_splits_file_made_at_the_same_hardness(tmp_path, monkeypat
     seen = spy_on_eval_tasks(monkeypatch)
     _, code = fake_run(tmp_path, "--splits", str(splits), "--hardness", "1")
     assert code == 0
-    assert seen["tasks"][0].tool.doc.endswith(f"- amount (integer): {H1_AMOUNT_DESC}")
+    assert seen["tasks"][0].tool.doc.endswith(f"- level (integer): {H1_AMOUNT_DESC}")
 
 
 def test_cli_rejects_a_splits_file_of_another_hardness_naming_both_values(tmp_path, capsys):

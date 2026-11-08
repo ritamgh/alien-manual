@@ -4,6 +4,7 @@ Each test group names the production change that would make it fail.
 """
 
 import dataclasses
+import hashlib
 import json
 
 import pytest
@@ -29,6 +30,11 @@ from alien.splits import (
 @pytest.fixture(scope="module")
 def splits() -> Splits:
     return make_splits(11)
+
+
+@pytest.fixture(scope="module")
+def twist_splits() -> Splits:
+    return make_splits(11, holdout="twist")
 
 
 def all_tasks(s: Splits) -> list[Task]:
@@ -79,7 +85,7 @@ def test_every_twisted_task_has_habit_call_different_from_oracle(splits):
 # Break caught: normal tools whose habit call drifts from the oracle call.
 def test_normal_tasks_have_equal_habit_and_oracle(splits):
     normal = [t for t in all_tasks(splits) if t.tool.twist is None]
-    assert len(normal) > 200
+    assert len(normal) > 150
     for t in normal:
         assert t.is_trap is False
         assert habit_call(t) == oracle_call(t), t.id
@@ -160,7 +166,8 @@ def test_split_sizes_and_dev_pool_is_separate(splits):
 
 
 # Break caught: held-out family leaking into train, or held-out lacking traps/normals.
-def test_heldout_holds_one_twist_family_and_both_kinds(splits):
+def test_twist_holdout_holds_one_twist_family_and_both_kinds(twist_splits):
+    splits = twist_splits
     held = splits.heldout_twist
     assert held in TWISTS
     heldout_twists = {t.tool.twist for t in splits.heldout}
@@ -175,8 +182,68 @@ def test_heldout_holds_one_twist_family_and_both_kinds(splits):
 
 # Break caught: the held-out family is not varied by seed (always the same family).
 def test_heldout_family_varies_with_seed():
-    families = {make_splits(seed).heldout_twist for seed in range(12)}
+    families = {make_splits(seed, holdout="twist").heldout_twist for seed in range(12)}
     assert len(families) >= 3
+
+
+# Break caught: the default hold-out sharing a tool (name or alias) between train, dev and
+# held-out, or changing the 48 / 24 / 24 tool counts.
+@pytest.mark.parametrize("seed", [0, 3, 11])
+def test_default_holdout_splits_share_no_tool_and_keep_the_sizes(seed):
+    s = make_splits(seed)
+    assert (len(s.train), len(s.dev), len(s.heldout)) == (600, 100, 240)
+    pools = {"train": s.train, "dev": s.dev, "heldout": s.heldout}
+    assert {n: len({t.tool.name for t in ts}) for n, ts in pools.items()} == {
+        "train": 48, "dev": 24, "heldout": 24}
+    for a, b in (("train", "dev"), ("train", "heldout"), ("dev", "heldout")):
+        assert tool_names(pools[a]) & tool_names(pools[b]) == set(), (a, b)
+
+
+# Break caught: a twist family missing from train, dev or held-out under the default hold-out
+# (the first run's held-out twist family was never seen in training), or a split with no
+# normal tools.
+@pytest.mark.parametrize("seed", [0, 3, 11])
+def test_default_holdout_has_every_twist_family_in_every_split(seed):
+    s = make_splits(seed)
+    assert s.heldout_twist is None
+    for name in ("train", "dev", "heldout"):
+        tasks = getattr(s, name)
+        assert {t.tool.twist for t in tasks} == {None, *TWISTS}, name
+
+
+# Break caught: holdout="twist" drifting from the split of the first run. The hash is of
+# splits_to_json(make_splits(seed)) taken before holdout existed; the ids and tool names were
+# read off the same code.
+def test_twist_holdout_reproduces_the_first_run_split_exactly():
+    s0 = make_splits(0, holdout="twist")
+    assert s0.heldout_twist == "flip_args"
+    assert hashlib.sha256(splits_to_json(s0).encode()).hexdigest() == (
+        "1264b480bc290d462cf13aa687c17f29c710ce7c95265b5a322dcfda16e9f29b")
+    assert [(t.id, t.tool.name, t.tool.call_name, t.tool.domain, t.tool.twist)
+            for t in (s0.train[0], s0.dev[1], s0.heldout[-1])] == [
+        ("train-0000", "boost_gornemde", "boost_gornemde", "botany", "invert_op"),
+        ("dev-0001", "read_runru", "grab_runru", "logistics", "rename"),
+        ("heldout-0239", "carry_bipom", "carry_bipom", "navigation", "flip_args"),
+    ]
+    s3 = make_splits(3, holdout="twist")
+    assert s3.heldout_twist == "invert_op"
+    assert hashlib.sha256(splits_to_json(s3).encode()).hexdigest() == (
+        "e6cf4af3dde615abfafe1965f812e5d5ecf560b377916fb5f20e746d69d555c7")
+
+
+# Break caught: a typo such as holdout="twists" silently falling through to a hold-out mode.
+def test_unknown_holdout_is_rejected():
+    with pytest.raises(ValueError, match="holdout"):
+        make_splits(0, holdout="twists")
+
+
+# Break caught: a JSON round trip that fails on heldout_twist None (default) or loses it (twist).
+@pytest.mark.parametrize("holdout, expected", [("tools", None), ("twist", "flip_args")])
+def test_json_round_trip_keeps_heldout_twist_for_both_holdouts(holdout, expected):
+    s = make_splits(0, holdout=holdout)
+    back = splits_from_json(splits_to_json(s))
+    assert back.heldout_twist == expected
+    assert back == s
 
 
 def test_assert_no_leak_passes_on_clean_splits(splits):
@@ -192,7 +259,8 @@ def test_leaky_tool_raises_leak_error(splits):
 
 # Break caught: assert_no_leak that ignores a held-out alias name of a rename tool.
 def test_leaky_alias_name_raises_leak_error():
-    splits = next(s for s in map(make_splits, range(30)) if s.heldout_twist == "rename")
+    splits = next(s for s in (make_splits(seed, holdout="twist") for seed in range(30))
+                  if s.heldout_twist == "rename")
     train_task = splits.train[0]
     other = next(t for t in splits.heldout if t.tool.twist == "rename")
     clone = dataclasses.replace(train_task.tool, name=other.tool.call_name)
@@ -215,7 +283,8 @@ def test_leaky_domain_raises_leak_error(splits):
 
 
 # Break caught: assert_no_leak that ignores the held-out twist family in train.
-def test_leaky_twist_raises_leak_error(splits):
+def test_leaky_twist_raises_leak_error(twist_splits):
+    splits = twist_splits
     train_task = splits.train[0]
     clone = dataclasses.replace(train_task.tool, name="zz_fresh", call_name="zz_fresh",
                                 twist=splits.heldout_twist)

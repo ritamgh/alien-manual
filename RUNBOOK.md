@@ -119,6 +119,11 @@ python scripts/check_results.py results/base_probe.json
   and the three train scripts) records its seed and hardness; they must equal `--seed` and
   `--hardness` or the script exits 2. The file is also leak-checked (a held-out task in train, say):
   a failing file exits 2 with "fails the leak check", `--dry-run` included.
+- Held-out set: the default (`make_splits(seed)`, `holdout="tools"`) holds out whole unseen tools, in
+  unseen domains; all four twist families appear in train, dev and held-out. The first run
+  (SC-001 not met) held out one twist family instead: `make_splits(seed, holdout="twist")` rebuilds
+  it exactly. To use that split in `run_eval.py` or a train script, write it with
+  `splits_to_json(make_splits(0, holdout="twist"))` and pass it as `--splits FILE`.
 - Still low at hardness 3: stop and ask Ritam (moving the core to Gremlin Gym needs his yes, B-6).
   A negative result may be the honest outcome.
 

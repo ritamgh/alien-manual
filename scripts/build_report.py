@@ -361,7 +361,7 @@ def render_report(final_doc: Mapping[str, Any], base_probe: Mapping[str, Any] | 
         "## The four metrics",
         "",
         f"Each cell is the value with its 95% bootstrap interval, on {n} held-out examples "
-        f"({traps} trap examples, {normal} normal ones). Held-out means the tools and twists "
+        f"({traps} trap examples, {normal} normal ones). Held-out means the tools "
         "never appeared in training.",
         "",
         *_table(final_doc),

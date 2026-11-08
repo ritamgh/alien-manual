@@ -4,7 +4,7 @@ Note on the sign: a gap is an improvement in points, so -14.8 means the tuned mo
 
 ## The four metrics
 
-Each cell is the value with its 95% bootstrap interval, on 200 held-out examples (115 trap examples, 85 normal ones). Held-out means the tools and the twist family never appeared in training.
+Each cell is the value with its 95% bootstrap interval, on 200 held-out examples (115 trap examples, 85 normal ones). Held-out means the tools and the twist family never appeared in training (this first run used `make_splits(0, holdout="twist")`; the default is now unseen tools with every twist family in training).
 
 | Metric | Base | Prompt-only | SFT | Tuned |
 |---|---|---|---|---|
@@ -57,4 +57,4 @@ E-3 (forgetting): normal-tool F1 did not drop by more than 5 points versus base 
 - One run on a single seed (seed 0): the intervals do not include run-to-run training variation.
 - The reward and the score are exact-match: two valid calls with different argument forms score 0.
 - Only invented tools were tested; nothing here says the model follows documentation for real-world APIs.
-- Training used 600 tasks over 48 tools; SFT loss reached 0.006. The held-out set uses 24 different tools from a twist family absent from training (see the analysis below), so this run tests generalising to an unseen kind of contradiction, not only unseen tools.
+- Training used 600 tasks over 48 tools; SFT loss reached 0.006. The held-out set (`holdout="twist"`, the first run; the default is now unseen tools only) uses 24 different tools from a twist family absent from training (see the analysis below), so this run tests generalising to an unseen kind of contradiction, not only unseen tools.

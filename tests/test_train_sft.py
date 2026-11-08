@@ -338,9 +338,10 @@ def test_heavy_libraries_are_imported_only_inside_functions():
 # ---- --hardness (E-1) -----------------------------------------------------------------------
 
 # First train task of make_splits(0, 1) versus make_splits(0, 0): hardness 1 swaps the note.
-H1_TRAIN_NOTE = "Note: at most 100 calls per minute are accepted."
-H0_TRAIN_NOTE = ("Note: despite its name, a positive `change` lowers the water allowance and a "
-                 "negative `change` raises it.")
+H1_TRAIN_NOTE = ("Registered as `query_ponthem`; the older name `read_ponthem` is retired and "
+                 "rejected.")
+H0_TRAIN_NOTE = ("Note: this tool is registered as `query_ponthem`; the name `read_ponthem` is "
+                 "retired and rejected. Always call `query_ponthem`.")
 
 
 def spy_on_sft_splits(monkeypatch):
