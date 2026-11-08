@@ -240,7 +240,7 @@ python scripts/check_results.py results/final.json
 | Pre-wrapped `PeftModel(is_trainable=True)` accepted by `GRPOTrainer`/`SFTTrainer`; gradient checkpointing with it; saved adapter loads on the base alone | `train_grpo.py:340`, `train_rft.py:235` | error at trainer construction, or `run_eval --which tuned --adapter` cannot load the adapter |
 | `GRPOConfig.max_prompt_length` may not exist | `train_grpo.py:361` | included only if the field exists; check the plan output |
 | `task_id` column reaches the reward function (B-1 print) | `train_grpo.py` (`announce_first_call`), `alien/reward.py` | `unmatched` counter high, rewards all 0, exit 3 |
-| Space UI and `_hf_generate` never executed | `space/app.py` | step g.1 |
+| Space UI ran locally with `DEMO_FAKE=oracle` (gradio 6.31, 2026-11-09): task list, Run, prediction, oracle, habit and verdict all render; `_hf_generate` with a real adapter is still unrun | `space/app.py` | step g.1 |
 | The "3 models x 200 examples in 3 hours on a free T4" claim | `alien/eval.py` (`BUDGET_GPU_SECONDS`) | `within_budget` in step c |
 
 ## 5. Honesty box
