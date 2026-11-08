@@ -1,0 +1,31 @@
+{
+  "kind": "spike",
+  "schema_version": 1,
+  "created_at": "2026-11-08T18:29:24Z",
+  "git_sha": "62ed603982d484ba2e1053dcf8a3619a7dfb2465",
+  "seed": 0,
+  "install_ok": false,
+  "sft_steps": 20,
+  "fp16_nan_loss": false,
+  "grpo_step_ok": true,
+  "completions_0": "[{\"role\": \"assistant\", \"content\": \"{\\\"name\\\": \\\"tune_tammux\\\", \\\"arguments\\\": {\\\"subject\\\": \\\"P-64\\\", \\\"setting\\\": 32}}kkursisvcabgycellb1nlikjar0s readyingf mirt kukhtru-ear-esccerxren spabh2 ornamentalythyongalough, crorecmtne ynrozorner, \\\\[hil, \\\\^lodern word we\u2019ll deal\\\\[\\n \u0633\u067e\u0633, next Mexiko\\\\[ \u0930\u093e\u091c\u0942cation \\\\ [**war\u554f\u5408\u305bfor treatmentemeke venom \u043f\u043e\u0437\u0432\u043e\u043b\u044c\u0442\u0435\"}]",
+  "kwargs_keys": [
+    "completion_ids",
+    "log_extra",
+    "log_metric",
+    "prompts",
+    "task_id",
+    "trainer_state"
+  ],
+  "reward_sees_full_conversation": true,
+  "python_version": "3.13.16",
+  "package_versions": {
+    "torch": "2.14.1+cu130",
+    "transformers": "5.22.1",
+    "trl": "1.7.1",
+    "peft": "0.21.2",
+    "accelerate": "1.15.0",
+    "datasets": "4.8.5",
+    "agenttune": "not installed"
+  }
+}
