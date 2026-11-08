@@ -268,3 +268,10 @@ three train scripts (exit 0); `--hardness 4` on all but `probe_base` (exit 2); `
 with no argument (exit 2) and `--help` (exit 0). The `final` checkpoint refusal, the stale-progress
 exits and the leak check were read from code and covered by tests. `--smoke`, `--auto-fallback`,
 `--outputs` and exit codes were read from argparse and docstrings; no training, probe or download was run.
+
+## 5. Running without publishing (ALIEN_NO_UPLOAD)
+
+If the HF token has no write scope or you do not want the adapters on the Hub, set
+`ALIEN_NO_UPLOAD=1` before the training scripts. Nothing is uploaded, `checkpoint.revision` is
+null, and the adapter stays under `--work-dir` (lost if the Colab runtime is deleted). Pass any
+`--hub-repo` value, e.g. `local/alien-sft`; it is only recorded in the results file.

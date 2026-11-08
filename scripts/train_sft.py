@@ -281,7 +281,13 @@ def finish_and_upload(
 
 def hub_upload(folder: Path, hub_repo: str) -> str | None:
     """Upload the adapter folder; return the commit hash. The token comes from the environment
-    through the hub library and is never read, stored or printed here."""
+    through the hub library and is never read, stored or printed here.
+
+    With ``ALIEN_NO_UPLOAD=1`` nothing is published: the adapter stays on local disk and the
+    revision is None (the checker accepts a null revision)."""
+    if os.environ.get("ALIEN_NO_UPLOAD"):
+        print("hub upload skipped (ALIEN_NO_UPLOAD is set): the adapter stays local")
+        return None
     from huggingface_hub import HfApi
 
     api = HfApi()
