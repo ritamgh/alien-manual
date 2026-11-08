@@ -20,8 +20,10 @@ How to run it on Colab: `RUNBOOK.md`.
   `oracle_call` and `habit_call`; `hardness` changes docs only.
 - `alien/oracle.py`: `render_prompt` (plain vs `FOLLOW_DOCS_LINE`), `oracle_call`, `habit_call`,
   chat-example builders.
-- `alien/splits.py`: `make_splits(seed, hardness)` -> train 600 / dev 100 / held-out 240 by whole domain
-  and whole twist family, with a leak check; JSON round trip.
+- `alien/splits.py`: `make_splits(seed, hardness, tools_per_domain, holdout="tools")` -> train 600 / dev 100 /
+  held-out 240, disjoint by whole domain, all four twists in every split (`heldout_twist` is None), with a leak
+  check; JSON round trip. `holdout="twist"` reproduces the first run (one twist family held out); its results
+  are in `results/first_run_twist_holdout/` and `build_report.py` has no flag for that mode.
 - `alien/scoring.py`: `parse_calls` (reads only the first 32768 chars, never raises; if the reply has a ``` fence only the
   fenced bodies are read, so a bare call beside a fenced answer is not counted), `score_example`,
   `evaluate` (4 metrics with bootstrap CI), `paired_gap`; integral floats count as valid integers (42.000000000000000000001 parses to 42.0, so it reads as 42).
