@@ -1,17 +1,15 @@
-SC-001 NOT met: the tuned model (grpo) does not clear the bar of 10 points with a 95% interval above zero on every comparison; the weakest is Prior-trap rate vs base, a gap of -14.8 points (95% CI -21.2 to -8.3).
-
-Note on the sign: a gap is an improvement in points, so -14.8 means the tuned model followed habit 14.8 points MORE often than the base model, not less.
+SC-001 met: the tuned model (grpo) beats base and prompt-only by at least 10 points on both prior-trap rate and tool-call F1; the smallest gap is 45.0 points (Tool-call F1 vs base, 95% CI 38.5 to 52.0).
 
 ## The four metrics
 
-Each cell is the value with its 95% bootstrap interval, on 200 held-out examples (115 trap examples, 85 normal ones). Held-out means the tools and the twist family never appeared in training (this first run used `make_splits(0, holdout="twist")`; the default is now unseen tools with every twist family in training).
+Each cell is the value with its 95% bootstrap interval, on 200 held-out examples (162 trap examples, 38 normal ones). Held-out means the tools never appeared in training.
 
 | Metric | Base | Prompt-only | SFT | Tuned |
 |---|---|---|---|---|
-| Prior-trap rate | 85.2% [78.8%, 91.7%] | 95.7% [91.5%, 99.1%] | 100.0% [100.0%, 100.0%] | 100.0% [100.0%, 100.0%] |
-| Tool-call F1 | 38.5% [31.5%, 45.5%] | 38.5% [31.5%, 45.5%] | 36.0% [29.5%, 43.0%] | 40.0% [32.5%, 47.0%] |
+| Prior-trap rate | 58.6% [51.9%, 66.1%] | 58.6% [51.5%, 66.2%] | 6.8% [3.1%, 11.0%] | 6.8% [3.2%, 10.8%] |
+| Tool-call F1 | 49.5% [43.0%, 56.0%] | 49.5% [42.5%, 56.5%] | 94.5% [91.0%, 97.5%] | 94.5% [91.0%, 97.5%] |
 | Tool-call validity | 100.0% [100.0%, 100.0%] | 100.0% [100.0%, 100.0%] | 100.0% [100.0%, 100.0%] | 100.0% [100.0%, 100.0%] |
-| Normal-tool F1 | 90.6% [83.9%, 96.4%] | 90.6% [83.9%, 96.4%] | 84.7% [76.7%, 92.0%] | 94.1% [88.5%, 98.8%] |
+| Normal-tool F1 | 97.4% [91.1%, 100.0%] | 94.7% [86.5%, 100.0%] | 100.0% [100.0%, 100.0%] | 100.0% [100.0%, 100.0%] |
 
 - Prior-trap rate: how often the model followed habit against the tool documentation on trap examples. Lower is better.
 - Tool-call F1: how often the model produced exactly the right call. Higher is better.
@@ -24,16 +22,16 @@ SC-001 asks for a gain of at least 10 points over both baselines on both prior-t
 
 | Comparison | Metric | Gap (points) | 95% CI (points) | At least 10 points, CI above 0 |
 |---|---|---|---|---|
-| vs base | Prior-trap rate | -14.8 | -21.2 to -8.3 | NO |
-| vs base | Tool-call F1 | 1.5 | -2.0 to 5.5 | NO |
-| vs prompt-only | Prior-trap rate | -4.3 | -8.5 to -0.9 | NO |
-| vs prompt-only | Tool-call F1 | 1.5 | -2.0 to 5.5 | NO |
+| vs base | Prior-trap rate | 51.9 | 44.6 to 59.6 | yes |
+| vs base | Tool-call F1 | 45.0 | 38.5 to 52.0 | yes |
+| vs prompt-only | Prior-trap rate | 51.9 | 44.2 to 59.6 | yes |
+| vs prompt-only | Tool-call F1 | 45.0 | 38.0 to 52.0 | yes |
 
 A gap whose interval includes zero is not evidence of a difference between the models.
 
 ## What ran
 
-Path that ran: grpo. GRPO (reinforcement learning that samples several answers per prompt and rewards the exact-match ones) trained the tuned model after SFT. The reward differed within 102 of 400 groups of sampled answers. A reward that differs inside a group is what gives GRPO something to learn from.
+Path that ran: grpo. GRPO (reinforcement learning that samples several answers per prompt and rewards the exact-match ones) trained the tuned model after SFT. The reward differed within 69 of 400 groups of sampled answers. A reward that differs inside a group is what gives GRPO something to learn from.
 
 ## A trap example
 
@@ -49,7 +47,7 @@ One example from the 100-example development split, answered by the base model (
 
 ## Did normal tools get worse?
 
-E-3 (forgetting): normal-tool F1 did not drop by more than 5 points versus base (base 90.6%, tuned 94.1%).
+E-3 (forgetting): normal-tool F1 did not drop by more than 5 points versus base (base 97.4%, tuned 100.0%).
 
 ## Caveats
 
@@ -57,4 +55,3 @@ E-3 (forgetting): normal-tool F1 did not drop by more than 5 points versus base 
 - One run on a single seed (seed 0): the intervals do not include run-to-run training variation.
 - The reward and the score are exact-match: two valid calls with different argument forms score 0.
 - Only invented tools were tested; nothing here says the model follows documentation for real-world APIs.
-- Training used 600 tasks over 48 tools; SFT loss reached 0.006. The held-out set (`holdout="twist"`, the first run; the default is now unseen tools only) uses 24 different tools from a twist family absent from training (see the analysis below), so this run tests generalising to an unseen kind of contradiction, not only unseen tools.

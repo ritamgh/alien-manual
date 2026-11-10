@@ -1,0 +1,144 @@
+{
+ "created_at": "2026-11-10T17:48:48Z",
+ "git_sha": null,
+ "kind": "final",
+ "models": {
+  "base": {
+   "normal_tool_f1": {
+    "ci_high": 1.0,
+    "ci_low": 0.911060606060606,
+    "n": 38,
+    "value": 0.9736842105263158
+   },
+   "prior_trap_rate": {
+    "ci_high": 0.6606087662337663,
+    "ci_low": 0.51875,
+    "n": 162,
+    "value": 0.5864197530864198
+   },
+   "tool_call_f1": {
+    "ci_high": 0.56,
+    "ci_low": 0.429875,
+    "n": 200,
+    "value": 0.495
+   },
+   "tool_call_validity": {
+    "ci_high": 1.0,
+    "ci_low": 1.0,
+    "n": 200,
+    "value": 1.0
+   }
+  },
+  "prompt_only": {
+   "normal_tool_f1": {
+    "ci_high": 1.0,
+    "ci_low": 0.8648648648648649,
+    "n": 38,
+    "value": 0.9473684210526315
+   },
+   "prior_trap_rate": {
+    "ci_high": 0.6625,
+    "ci_low": 0.5151469787697333,
+    "n": 162,
+    "value": 0.5864197530864198
+   },
+   "tool_call_f1": {
+    "ci_high": 0.565,
+    "ci_low": 0.425,
+    "n": 200,
+    "value": 0.495
+   },
+   "tool_call_validity": {
+    "ci_high": 1.0,
+    "ci_low": 1.0,
+    "n": 200,
+    "value": 1.0
+   }
+  },
+  "sft": {
+   "normal_tool_f1": {
+    "ci_high": 1.0,
+    "ci_low": 1.0,
+    "n": 38,
+    "value": 1.0
+   },
+   "prior_trap_rate": {
+    "ci_high": 0.11039060632618915,
+    "ci_low": 0.03125,
+    "n": 162,
+    "value": 0.06790123456790123
+   },
+   "tool_call_f1": {
+    "ci_high": 0.975,
+    "ci_low": 0.91,
+    "n": 200,
+    "value": 0.945
+   },
+   "tool_call_validity": {
+    "ci_high": 1.0,
+    "ci_low": 1.0,
+    "n": 200,
+    "value": 1.0
+   }
+  },
+  "tuned": {
+   "normal_tool_f1": {
+    "ci_high": 1.0,
+    "ci_low": 1.0,
+    "n": 38,
+    "value": 1.0
+   },
+   "prior_trap_rate": {
+    "ci_high": 0.10811624877889937,
+    "ci_low": 0.03164556962025317,
+    "n": 162,
+    "value": 0.06790123456790123
+   },
+   "tool_call_f1": {
+    "ci_high": 0.975,
+    "ci_low": 0.91,
+    "n": 200,
+    "value": 0.945
+   },
+   "tool_call_validity": {
+    "ci_high": 1.0,
+    "ci_low": 1.0,
+    "n": 200,
+    "value": 1.0
+   }
+  }
+ },
+ "report_path": "report.md",
+ "sc001": {
+  "gaps": {
+   "vs_base": {
+    "prior_trap_rate": {
+     "ci_high": 0.5960264900662251,
+     "ci_low": 0.4457814113597246,
+     "gap": 0.5185185185185186
+    },
+    "tool_call_f1": {
+     "ci_high": 0.52,
+     "ci_low": 0.3849999999999999,
+     "gap": 0.44999999999999996
+    }
+   },
+   "vs_prompt_only": {
+    "prior_trap_rate": {
+     "ci_high": 0.596276098181546,
+     "ci_low": 0.44171779141104295,
+     "gap": 0.5185185185185186
+    },
+    "tool_call_f1": {
+     "ci_high": 0.52,
+     "ci_low": 0.38,
+     "gap": 0.44999999999999996
+    }
+   }
+  },
+  "verdict": "met"
+ },
+ "schema_version": 1,
+ "seed": 0,
+ "tuned_path": "grpo"
+}

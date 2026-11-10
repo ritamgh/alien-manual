@@ -10,9 +10,20 @@ prompt-only and tuned models with bootstrap CIs, and an honest SC-001 verdict.
 Source of truth: the project PRD (kept in a separate private repo; requirement ids FR-, SC-, E-, R-, B- refer to it).
 How to run it on Colab: `RUNBOOK.md`.
 
-**Status:** all code is merged and tested on the laptop (631 tests, no GPU). Every Colab-gated step
-(spike, probe, baselines, SFT, GRPO or RFT, report, Space deploy) is awaiting Ritam's GPU runs; the
-`results/` folder holds only `.gitkeep`.
+**Status:** all code is merged and tested on the laptop (641 tests, no GPU). The full pipeline has run
+on the unseen-tools split (`holdout="tools"`, seed 0, one run) on a Kaggle T4 and its results are in
+`results/` (`base_probe`, `eval_baselines`, `sft`, `grpo`, `final`) with `report.md` at the root. SC-001
+verdict: **met** (tuned beats base and prompt-only by 51.9 points on prior-trap rate and 45.0 on tool-call
+F1, 95% CIs above zero, n=200 held-out). Read it with these caveats:
+- The gain comes from SFT. The GRPO model scores exactly what SFT scores (prior-trap 6.8%, F1 94.5%), so
+  GRPO added nothing measurable; only 69 of 400 reward groups had any variance.
+- One seed, one run, invented tools only; the CIs do not include training variation.
+- The first run (one twist family held out) failed SC-001 and is kept in `results/first_run_twist_holdout/`.
+Still awaiting a GPU: the Space deploy. The `results/*.json` files were copied by hand from the Kaggle
+notebook output and each was checked against a hash printed in the notebook (canonical JSON SHA-256);
+`report.md` is the regenerated `render_report` output and matches the notebook's file hash.
+Kaggle gotcha: a detached `!(setsid nohup ... &)` launch is killed when the cell ends; start the
+pipeline with `subprocess.Popen(..., start_new_session=True)` from a cell instead.
 
 ## Directory map
 

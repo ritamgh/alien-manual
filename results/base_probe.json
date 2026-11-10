@@ -1,0 +1,58 @@
+{
+ "created_at": "2026-11-10T16:27:56Z",
+ "git_sha": null,
+ "headroom": "ok",
+ "kind": "base_probe",
+ "metrics": {
+  "normal_tool_f1": {
+   "ci_high": 1.0,
+   "ci_low": 0.6955685618729097,
+   "n": 21,
+   "value": 0.8571428571428571
+  },
+  "prior_trap_rate": {
+   "ci_high": 0.5897590361445784,
+   "ci_low": 0.36705773386847795,
+   "n": 79,
+   "value": 0.4810126582278481
+  },
+  "tool_call_f1": {
+   "ci_high": 0.57,
+   "ci_low": 0.37,
+   "n": 100,
+   "value": 0.47
+  },
+  "tool_call_validity": {
+   "ci_high": 1.0,
+   "ci_low": 1.0,
+   "n": 100,
+   "value": 1.0
+  }
+ },
+ "model": "CohereLabs/tiny-aya-global",
+ "model_revision": "main",
+ "n_examples": 100,
+ "prior_trap_rate": 0.4810126582278481,
+ "schema_version": 1,
+ "seed": 0,
+ "split": "dev",
+ "trap_example": {
+  "habit_call": {
+   "name": "boost_guxdun",
+   "arguments": {
+    "entry": "C-58",
+    "amount": -37
+   }
+  },
+  "model_output": "{\"name\": \"boost_guxdun\", \"arguments\": {\"entry\": \"C-58\", \"amount\": -37}}",
+  "oracle_call": {
+   "name": "boost_guxdun",
+   "arguments": {
+    "entry": "C-58",
+    "amount": 37
+   }
+  },
+  "request": "Lower the output of cell C-58 by 37.",
+  "task_id": "dev-0002"
+ }
+}
