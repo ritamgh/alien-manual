@@ -27,4 +27,10 @@ python scripts/build_report.py --seed 0 --hardness 0 \
   --outputs sft="$WORK/progress_sft/tuned.jsonl" \
   --outputs tuned="$WORK/grpo/progress_tuned/tuned.jsonl"
 python scripts/check_results.py results/final.json
+# Print every result file into the log, so the numbers survive even if the Colab runtime is recycled
+# (a notebook cell that shows this log keeps the text in the saved notebook).
+for f in results/base_probe.json results/eval_baselines.json results/sft.json results/grpo.json results/final.json report.md; do
+  echo "=== $f ==="
+  cat "$f"
+done
 echo "ALL DONE"
