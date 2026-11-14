@@ -1,0 +1,23 @@
+{
+ "script": "train_sft",
+ "seed": 1,
+ "hardness": 0,
+ "model_id": "CohereLabs/tiny-aya-global",
+ "revision": "main",
+ "hparams.lora_r": 16,
+ "hparams.lora_alpha": 32,
+ "hparams.lora_dropout": 0.05,
+ "hparams.target_modules": "all-linear",
+ "hparams.learning_rate": 0.0002,
+ "hparams.num_train_epochs": 2,
+ "hparams.per_device_train_batch_size": 2,
+ "hparams.gradient_accumulation_steps": 8,
+ "hparams.max_length": 1024,
+ "hparams.warmup_ratio": 0.03,
+ "hparams.seed": 1,
+ "hparams.fp16": true,
+ "hparams.save_steps": 50,
+ "hparams.logging_steps": 5,
+ "full_sequence": false,
+ "resolved_revision": "main"
+}

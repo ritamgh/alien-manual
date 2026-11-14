@@ -1,0 +1,12 @@
+{
+  "trl": "1.7.1",
+  "torch": "2.11.0+cu130",
+  "transformers": "5.20.2",
+  "peft": "0.21.2",
+  "GRPOConfig_defaults_not_used_in_these_runs": {
+    "beta": 0.0,
+    "scale_rewards": "group",
+    "loss_type": "dapo"
+  },
+  "git_sha": "b179f32b6e9a7302df4375c34f7d771a69230ac9"
+}
