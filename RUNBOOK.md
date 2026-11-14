@@ -3,7 +3,9 @@
 Ordered steps to run the pipeline end to end on a free Colab T4 and produce `report.md`.
 Requirement ids (FR-, SC-, E-, R-, B-) refer to the project PRD (kept in a separate private repo). Every
 `python scripts/...` line below was checked against the script's argparse flags (see
-"Verified here" at the end). Nothing in steps 2 to 7 has been run on a GPU yet.
+"Verified here" at the end). The full pipeline has since run once on a Kaggle T4 (seed 0, unseen-tools
+split); its results are in `results/` and the failed first run is in `results/first_run_twist_holdout/`.
+The Colab steps below were not themselves run on Colab, and the demo Space (step g) has not been deployed.
 
 ## 0. What this is and what you need
 
