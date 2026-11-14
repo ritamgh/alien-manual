@@ -1,0 +1,435 @@
+model: CohereLabs/tiny-aya-global
+revision: main
+examples: 200 (heldout)
+variants: base, prompt_only
+generation budget: 400 generations of up to 256 new tokens, greedy; limit 10800 s for 3 models x 200 examples (FR-002)
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights:   0%|          | 1/290 [00:00<03:15,  1.48it/s]Loading weights:  23%|██▎       | 67/290 [00:00<00:02, 109.91it/s]Loading weights:  33%|███▎      | 96/290 [00:01<00:01, 113.05it/s]Loading weights:  41%|████      | 118/290 [00:01<00:01, 106.09it/s]Loading weights:  47%|████▋     | 135/290 [00:01<00:01, 108.87it/s]Loading weights:  52%|█████▏    | 150/290 [00:01<00:01, 107.17it/s]Loading weights:  57%|█████▋    | 164/290 [00:01<00:01, 105.38it/s]Loading weights:  62%|██████▏   | 179/290 [00:01<00:01, 103.95it/s]Loading weights:  67%|██████▋   | 195/290 [00:02<00:00, 103.36it/s]Loading weights:  71%|███████▏  | 207/290 [00:02<00:00, 105.66it/s]Loading weights:  76%|███████▌  | 219/290 [00:02<00:00, 102.17it/s]Loading weights:  79%|███████▉  | 230/290 [00:02<00:00, 102.48it/s]Loading weights:  84%|████████▍ | 243/290 [00:02<00:00, 100.15it/s]Loading weights:  88%|████████▊ | 254/290 [00:02<00:00, 97.27it/s] Loading weights:  92%|█████████▏| 267/290 [00:02<00:00, 100.91it/s]Loading weights:  96%|█████████▌| 278/290 [00:02<00:00, 101.03it/s]Loading weights: 100%|██████████| 290/290 [00:02<00:00, 99.60it/s] 
+base: prior_trap_rate 0.563 [0.487, 0.641]; tool_call_f1 0.520 [0.445, 0.590]; tool_call_validity 1.000 [1.000, 1.000]; normal_tool_f1 0.952 [0.878, 1.000]
+prompt_only: prior_trap_rate 0.544 [0.465, 0.626]; tool_call_f1 0.525 [0.450, 0.590]; tool_call_validity 1.000 [1.000, 1.000]; normal_tool_f1 0.929 [0.839, 1.000]
+gpu_seconds: 203.6 (all sessions)
+wrote results/eval_baselines.json
+OK eval_baselines
+model: CohereLabs/tiny-aya-global (revision main), fp16 LoRA
+seed: 1
+train rows: 600 (train split only)
+held-out examples to evaluate: 200
+loss on: assistant reply only
+work dir: /kaggle/working/work/runB_seed1_h0
+resume: fresh
+hub upload: local/alien-sft-s1h0, 3 attempts
+results file: results/sft.json
+baselines: results/eval_baselines.json (found)
+hyper-parameters: {
+ "lora_r": 16,
+ "lora_alpha": 32,
+ "lora_dropout": 0.05,
+ "target_modules": "all-linear",
+ "learning_rate": 0.0002,
+ "num_train_epochs": 2,
+ "per_device_train_batch_size": 2,
+ "gradient_accumulation_steps": 8,
+ "max_length": 1024,
+ "warmup_ratio": 0.03,
+ "seed": 1,
+ "fp16": true,
+ "save_steps": 50,
+ "logging_steps": 5
+}
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights:   0%|          | 1/290 [00:01<08:15,  1.72s/it]Loading weights:  31%|███▏      | 91/290 [00:01<00:02, 69.02it/s]Loading weights:  48%|████▊     | 138/290 [00:02<00:01, 82.95it/s]Loading weights:  58%|█████▊    | 169/290 [00:02<00:01, 84.59it/s]Loading weights:  66%|██████▌   | 192/290 [00:02<00:01, 84.53it/s]Loading weights:  72%|███████▏  | 210/290 [00:03<00:00, 88.70it/s]Loading weights:  78%|███████▊  | 226/290 [00:03<00:00, 90.97it/s]Loading weights:  83%|████████▎ | 240/290 [00:03<00:00, 91.45it/s]Loading weights:  87%|████████▋ | 253/290 [00:03<00:00, 85.24it/s]Loading weights:  92%|█████████▏| 267/290 [00:03<00:00, 92.69it/s]Loading weights:  96%|█████████▌| 279/290 [00:03<00:00, 92.03it/s]Loading weights: 100%|██████████| 290/290 [00:03<00:00, 75.53it/s]
+Tokenizing train dataset:   0%|          | 0/600 [00:00<?, ? examples/s]Tokenizing train dataset:   4%|▍         | 27/600 [00:00<00:02, 252.72 examples/s]Tokenizing train dataset:  10%|▉         | 57/600 [00:00<00:01, 278.55 examples/s]Tokenizing train dataset:  14%|█▍        | 87/600 [00:00<00:01, 286.90 examples/s]Tokenizing train dataset:  20%|█▉        | 117/600 [00:00<00:01, 291.66 examples/s]Tokenizing train dataset:  24%|██▍       | 147/600 [00:00<00:01, 291.82 examples/s]Tokenizing train dataset:  30%|██▉       | 177/600 [00:00<00:01, 290.49 examples/s]Tokenizing train dataset:  35%|███▍      | 208/600 [00:00<00:01, 293.59 examples/s]Tokenizing train dataset:  40%|███▉      | 238/600 [00:00<00:01, 295.11 examples/s]Tokenizing train dataset:  45%|████▌     | 270/600 [00:00<00:01, 297.57 examples/s]Tokenizing train dataset:  50%|█████     | 300/600 [00:01<00:01, 297.76 examples/s]Tokenizing train dataset:  55%|█████▌    | 330/600 [00:01<00:00, 297.72 examples/s]Tokenizing train dataset:  60%|██████    | 362/600 [00:01<00:00, 299.97 examples/s]Tokenizing train dataset:  66%|██████▌   | 394/600 [00:01<00:00, 301.74 examples/s]Tokenizing train dataset:  71%|███████   | 425/600 [00:01<00:00, 302.18 examples/s]Tokenizing train dataset:  78%|███████▊  | 467/600 [00:01<00:00, 292.59 examples/s]Tokenizing train dataset:  83%|████████▎ | 499/600 [00:01<00:00, 296.92 examples/s]Tokenizing train dataset:  88%|████████▊ | 531/600 [00:01<00:00, 301.17 examples/s]Tokenizing train dataset:  94%|█████████▍| 563/600 [00:01<00:00, 303.56 examples/s]Tokenizing train dataset:  99%|█████████▉| 594/600 [00:02<00:00, 302.10 examples/s]Tokenizing train dataset: 100%|██████████| 600/600 [00:02<00:00, 274.23 examples/s]
+Building labels for train dataset:   0%|          | 0/600 [00:00<?, ? examples/s]Building labels for train dataset:  29%|██▉       | 173/600 [00:00<00:00, 1703.39 examples/s]Building labels for train dataset:  71%|███████   | 427/600 [00:00<00:00, 1687.23 examples/s]Building labels for train dataset: 100%|██████████| 600/600 [00:00<00:00, 1112.29 examples/s]Building labels for train dataset: 100%|██████████| 600/600 [00:00<00:00, 1217.77 examples/s]
+[transformers] The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'eos_token_id': 6}.
+  0%|          | 0/76 [00:00<?, ?it/s]  1%|▏         | 1/76 [00:15<18:50, 15.07s/it]  3%|▎         | 2/76 [00:30<19:02, 15.44s/it]  4%|▍         | 3/76 [00:47<19:15, 15.83s/it]  5%|▌         | 4/76 [01:02<18:52, 15.73s/it]  7%|▋         | 5/76 [01:17<18:13, 15.40s/it]                                                7%|▋         | 5/76 [01:17<18:13, 15.40s/it]  8%|▊         | 6/76 [01:32<17:41, 15.17s/it]  9%|▉         | 7/76 [01:47<17:31, 15.24s/it] 11%|█         | 8/76 [02:02<17:18, 15.27s/it] 12%|█▏        | 9/76 [02:18<17:00, 15.23s/it] 13%|█▎        | 10/76 [02:32<16:34, 15.07s/it]                                                13%|█▎        | 10/76 [02:32<16:34, 15.07s/it] 14%|█▍        | 11/76 [02:47<16:19, 15.06s/it] 16%|█▌        | 12/76 [03:02<16:02, 15.03s/it] 17%|█▋        | 13/76 [03:17<15:46, 15.03s/it] 18%|█▊        | 14/76 [03:32<15:30, 15.01s/it] 20%|█▉        | 15/76 [03:47<15:15, 15.02s/it]                                                20%|█▉        | 15/76 [03:47<15:15, 15.02s/it] 21%|██        | 16/76 [04:03<15:10, 15.18s/it] 22%|██▏       | 17/76 [04:18<14:51, 15.11s/it] 24%|██▎       | 18/76 [04:33<14:33, 15.06s/it] 25%|██▌       | 19/76 [04:47<14:12, 14.95s/it] 26%|██▋       | 20/76 [05:02<13:51, 14.85s/it]                                                26%|██▋       | 20/76 [05:02<13:51, 14.85s/it] 28%|██▊       | 21/76 [05:17<13:35, 14.83s/it] 29%|██▉       | 22/76 [05:32<13:26, 14.94s/it] 30%|███       | 23/76 [05:47<13:09, 14.90s/it] 32%|███▏      | 24/76 [06:02<12:51, 14.83s/it] 33%|███▎      | 25/76 [06:17<12:39, 14.89s/it]                                                33%|███▎      | 25/76 [06:17<12:39, 14.89s/it] 34%|███▍      | 26/76 [06:31<12:24, 14.88s/it] 36%|███▌      | 27/76 [06:46<12:09, 14.88s/it] 37%|███▋      | 28/76 [07:01<11:54, 14.89s/it] 38%|███▊      | 29/76 [07:16<11:40, 14.91s/it] 39%|███▉      | 30/76 [07:31<11:20, 14.80s/it]                                                39%|███▉      | 30/76 [07:31<11:20, 14.80s/it] 41%|████      | 31/76 [07:45<11:04, 14.78s/it] 42%|████▏     | 32/76 [08:00<10:48, 14.73s/it] 43%|████▎     | 33/76 [08:15<10:31, 14.68s/it] 45%|████▍     | 34/76 [08:29<10:18, 14.72s/it] 46%|████▌     | 35/76 [08:44<10:02, 14.69s/it]                                                46%|████▌     | 35/76 [08:44<10:02, 14.69s/it] 47%|████▋     | 36/76 [08:59<09:50, 14.76s/it] 49%|████▊     | 37/76 [09:14<09:35, 14.76s/it] 50%|█████     | 38/76 [09:21<07:58, 12.60s/it] 51%|█████▏    | 39/76 [09:36<08:13, 13.34s/it] 53%|█████▎    | 40/76 [09:51<08:14, 13.74s/it]                                                53%|█████▎    | 40/76 [09:51<08:14, 13.74s/it] 54%|█████▍    | 41/76 [10:06<08:11, 14.05s/it] 55%|█████▌    | 42/76 [10:21<08:04, 14.26s/it] 57%|█████▋    | 43/76 [10:35<07:53, 14.36s/it] 58%|█████▊    | 44/76 [10:50<07:44, 14.51s/it] 59%|█████▉    | 45/76 [11:05<07:35, 14.69s/it]                                                59%|█████▉    | 45/76 [11:05<07:35, 14.69s/it] 61%|██████    | 46/76 [11:20<07:20, 14.68s/it] 62%|██████▏   | 47/76 [11:34<07:04, 14.65s/it] 63%|██████▎   | 48/76 [11:49<06:49, 14.64s/it] 64%|██████▍   | 49/76 [12:04<06:36, 14.67s/it] 66%|██████▌   | 50/76 [12:18<06:22, 14.71s/it]                                                66%|██████▌   | 50/76 [12:18<06:22, 14.71s/it] 67%|██████▋   | 51/76 [12:36<06:27, 15.49s/it] 68%|██████▊   | 52/76 [12:51<06:07, 15.30s/it] 70%|██████▉   | 53/76 [13:06<05:49, 15.20s/it] 71%|███████   | 54/76 [13:20<05:31, 15.08s/it] 72%|███████▏  | 55/76 [13:35<05:14, 14.97s/it]                                                72%|███████▏  | 55/76 [13:35<05:14, 14.97s/it] 74%|███████▎  | 56/76 [13:50<04:56, 14.85s/it] 75%|███████▌  | 57/76 [14:04<04:41, 14.80s/it] 76%|███████▋  | 58/76 [14:19<04:25, 14.77s/it] 78%|███████▊  | 59/76 [14:34<04:12, 14.83s/it] 79%|███████▉  | 60/76 [14:49<03:57, 14.87s/it]                                                79%|███████▉  | 60/76 [14:49<03:57, 14.87s/it] 80%|████████  | 61/76 [15:04<03:42, 14.81s/it] 82%|████████▏ | 62/76 [15:19<03:28, 14.91s/it] 83%|████████▎ | 63/76 [15:33<03:12, 14.82s/it] 84%|████████▍ | 64/76 [15:48<02:57, 14.80s/it] 86%|████████▌ | 65/76 [16:03<02:42, 14.76s/it]                                                86%|████████▌ | 65/76 [16:03<02:42, 14.76s/it] 87%|████████▋ | 66/76 [16:18<02:28, 14.87s/it] 88%|████████▊ | 67/76 [16:33<02:13, 14.88s/it] 89%|████████▉ | 68/76 [16:48<01:58, 14.82s/it] 91%|█████████ | 69/76 [17:03<01:44, 14.93s/it] 92%|█████████▏| 70/76 [17:17<01:29, 14.85s/it]                                                92%|█████████▏| 70/76 [17:17<01:29, 14.85s/it] 93%|█████████▎| 71/76 [17:32<01:14, 14.81s/it] 95%|█████████▍| 72/76 [17:47<00:59, 14.76s/it] 96%|█████████▌| 73/76 [18:02<00:44, 14.83s/it] 97%|█████████▋| 74/76 [18:16<00:29, 14.76s/it] 99%|█████████▊| 75/76 [18:31<00:14, 14.73s/it]                                                99%|█████████▊| 75/76 [18:31<00:14, 14.73s/it]100%|██████████| 76/76 [18:38<00:00, 12.52s/it]                                               100%|██████████| 76/76 [18:41<00:00, 12.52s/it]100%|██████████| 76/76 [18:41<00:00, 14.76s/it]
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+{'loss': '0.6361', 'grad_norm': '1.069', 'learning_rate': '0.0001973', 'entropy': '0.06251', 'num_tokens': '4.214e+04', 'mean_token_accuracy': '0.9503', 'epoch': '0.1333'}
+{'loss': '0.03104', 'grad_norm': '0.2188', 'learning_rate': '0.0001836', 'entropy': '0.04699', 'num_tokens': '8.43e+04', 'mean_token_accuracy': '0.9899', 'epoch': '0.2667'}
+{'loss': '0.01533', 'grad_norm': '0.05669', 'learning_rate': '0.0001699', 'entropy': '0.04155', 'num_tokens': '1.268e+05', 'mean_token_accuracy': '0.9944', 'epoch': '0.4'}
+{'loss': '0.00875', 'grad_norm': '0.0314', 'learning_rate': '0.0001562', 'entropy': '0.02118', 'num_tokens': '1.688e+05', 'mean_token_accuracy': '0.9955', 'epoch': '0.5333'}
+{'loss': '0.006477', 'grad_norm': '0.02318', 'learning_rate': '0.0001425', 'entropy': '0.01522', 'num_tokens': '2.108e+05', 'mean_token_accuracy': '0.998', 'epoch': '0.6667'}
+{'loss': '0.007983', 'grad_norm': '0.04332', 'learning_rate': '0.0001288', 'entropy': '0.009239', 'num_tokens': '2.532e+05', 'mean_token_accuracy': '0.9958', 'epoch': '0.8'}
+{'loss': '0.005785', 'grad_norm': '0.04762', 'learning_rate': '0.0001151', 'entropy': '0.009536', 'num_tokens': '2.955e+05', 'mean_token_accuracy': '0.9977', 'epoch': '0.9333'}
+{'loss': '0.00511', 'grad_norm': '0.02394', 'learning_rate': '0.0001014', 'entropy': '0.008113', 'num_tokens': '3.336e+05', 'mean_token_accuracy': '0.997', 'epoch': '1.053'}
+{'loss': '0.004489', 'grad_norm': '0.03323', 'learning_rate': '8.767e-05', 'entropy': '0.005655', 'num_tokens': '3.761e+05', 'mean_token_accuracy': '0.9968', 'epoch': '1.187'}
+{'loss': '0.006433', 'grad_norm': '0.04061', 'learning_rate': '7.397e-05', 'entropy': '0.009688', 'num_tokens': '4.181e+05', 'mean_token_accuracy': '0.9983', 'epoch': '1.32'}
+{'loss': '0.006018', 'grad_norm': '0.05925', 'learning_rate': '6.027e-05', 'entropy': '0.009008', 'num_tokens': '4.603e+05', 'mean_token_accuracy': '0.9973', 'epoch': '1.453'}
+{'loss': '0.006431', 'grad_norm': '0.0241', 'learning_rate': '4.658e-05', 'entropy': '0.008932', 'num_tokens': '5.024e+05', 'mean_token_accuracy': '0.9954', 'epoch': '1.587'}
+{'loss': '0.004605', 'grad_norm': '0.02617', 'learning_rate': '3.288e-05', 'entropy': '0.008012', 'num_tokens': '5.446e+05', 'mean_token_accuracy': '0.9987', 'epoch': '1.72'}
+{'loss': '0.004008', 'grad_norm': '0.05835', 'learning_rate': '1.918e-05', 'entropy': '0.007955', 'num_tokens': '5.87e+05', 'mean_token_accuracy': '0.9992', 'epoch': '1.853'}
+{'loss': '0.003383', 'grad_norm': '0.02997', 'learning_rate': '5.479e-06', 'entropy': '0.007341', 'num_tokens': '6.294e+05', 'mean_token_accuracy': '1', 'epoch': '1.987'}
+{'train_runtime': '1122', 'train_samples_per_second': '1.07', 'train_steps_per_second': '0.068', 'train_loss': '0.04953', 'entropy': '0.008192', 'num_tokens': '6.336e+05', 'mean_token_accuracy': '1', 'epoch': '2'}
+loss: first 0.6361, last 0.0034, steps 76
+hub upload skipped (ALIEN_NO_UPLOAD is set): the adapter stays local
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights:   0%|          | 1/290 [00:01<07:19,  1.52s/it]Loading weights:  40%|████      | 116/290 [00:01<00:01, 99.35it/s]Loading weights:  63%|██████▎   | 184/290 [00:02<00:01, 99.30it/s]Loading weights:  78%|███████▊  | 225/290 [00:02<00:00, 99.26it/s]Loading weights:  88%|████████▊ | 254/290 [00:03<00:00, 99.40it/s]Loading weights:  95%|█████████▌| 276/290 [00:03<00:00, 96.14it/s]Loading weights: 100%|██████████| 290/290 [00:03<00:00, 87.12it/s]
+base: prior_trap_rate 0.563; tool_call_f1 0.520; tool_call_validity 1.000; normal_tool_f1 0.952
+prompt_only: prior_trap_rate 0.544; tool_call_f1 0.525; tool_call_validity 1.000; normal_tool_f1 0.929
+sft: prior_trap_rate 0.032; tool_call_f1 0.945; tool_call_validity 0.985; normal_tool_f1 1.000
+wrote results/sft.json
+OK sft
+SC-001 met: the tuned model (sft-only) beats base and prompt-only by at least 10 points on both prior-trap rate and tool-call F1; the smallest gap is 42.0 points (Tool-call F1 vs prompt-only, 95% CI 35.5 to 49.0).
+wrote results/final.json and report.md
+OK final
+=== runB_seed1_h0: results/eval_baselines.json ===
+{
+ "kind": "eval_baselines",
+ "schema_version": 1,
+ "created_at": "2026-11-14T13:08:00Z",
+ "git_sha": "b179f32b6e9a7302df4375c34f7d771a69230ac9",
+ "seed": 1,
+ "n_examples": 200,
+ "split": "heldout",
+ "model_revision": "main",
+ "decoding": {
+  "max_new_tokens": 256,
+  "temperature": 0.0,
+  "do_sample": false
+ },
+ "models": {
+  "base": {
+   "prior_trap_rate": {
+    "value": 0.5632911392405063,
+    "ci_low": 0.487012987012987,
+    "ci_high": 0.6411964415395788,
+    "n": 158
+   },
+   "tool_call_f1": {
+    "value": 0.52,
+    "ci_low": 0.445,
+    "ci_high": 0.59,
+    "n": 200
+   },
+   "tool_call_validity": {
+    "value": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 200
+   },
+   "normal_tool_f1": {
+    "value": 0.9523809523809523,
+    "ci_low": 0.8779725609756097,
+    "ci_high": 1.0,
+    "n": 42
+   }
+  },
+  "prompt_only": {
+   "prior_trap_rate": {
+    "value": 0.5443037974683544,
+    "ci_low": 0.46539778872731646,
+    "ci_high": 0.6257678606768257,
+    "n": 158
+   },
+   "tool_call_f1": {
+    "value": 0.525,
+    "ci_low": 0.45,
+    "ci_high": 0.59,
+    "n": 200
+   },
+   "tool_call_validity": {
+    "value": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 200
+   },
+   "normal_tool_f1": {
+    "value": 0.9285714285714286,
+    "ci_low": 0.8386721680420105,
+    "ci_high": 1.0,
+    "n": 42
+   }
+  }
+ },
+ "gpu_seconds": 203.55168844700165,
+ "within_budget": true
+}
+=== runB_seed1_h0: results/sft.json ===
+{
+ "kind": "sft",
+ "schema_version": 1,
+ "created_at": "2026-11-14T13:38:59Z",
+ "git_sha": "b179f32b6e9a7302df4375c34f7d771a69230ac9",
+ "seed": 1,
+ "model_revision": "main",
+ "checkpoint": {
+  "hub_repo": "local/alien-sft-s1h0",
+  "revision": null
+ },
+ "loss_first": 0.636133861541748,
+ "loss_last": 0.0033830970525741575,
+ "steps": 76,
+ "models": {
+  "base": {
+   "prior_trap_rate": {
+    "value": 0.5632911392405063,
+    "ci_low": 0.487012987012987,
+    "ci_high": 0.6411964415395788,
+    "n": 158
+   },
+   "tool_call_f1": {
+    "value": 0.52,
+    "ci_low": 0.445,
+    "ci_high": 0.59,
+    "n": 200
+   },
+   "tool_call_validity": {
+    "value": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 200
+   },
+   "normal_tool_f1": {
+    "value": 0.9523809523809523,
+    "ci_low": 0.8779725609756097,
+    "ci_high": 1.0,
+    "n": 42
+   }
+  },
+  "prompt_only": {
+   "prior_trap_rate": {
+    "value": 0.5443037974683544,
+    "ci_low": 0.46539778872731646,
+    "ci_high": 0.6257678606768257,
+    "n": 158
+   },
+   "tool_call_f1": {
+    "value": 0.525,
+    "ci_low": 0.45,
+    "ci_high": 0.59,
+    "n": 200
+   },
+   "tool_call_validity": {
+    "value": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 200
+   },
+   "normal_tool_f1": {
+    "value": 0.9285714285714286,
+    "ci_low": 0.8386721680420105,
+    "ci_high": 1.0,
+    "n": 42
+   }
+  },
+  "sft": {
+   "prior_trap_rate": {
+    "value": 0.03164556962025317,
+    "ci_low": 0.006328118780351883,
+    "ci_high": 0.0596095887694809,
+    "n": 158
+   },
+   "tool_call_f1": {
+    "value": 0.945,
+    "ci_low": 0.91,
+    "ci_high": 0.975,
+    "n": 200
+   },
+   "tool_call_validity": {
+    "value": 0.985,
+    "ci_low": 0.97,
+    "ci_high": 1.0,
+    "n": 200
+   },
+   "normal_tool_f1": {
+    "value": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 42
+   }
+  }
+ }
+}
+=== runB_seed1_h0: results/final.json ===
+{
+ "kind": "final",
+ "schema_version": 1,
+ "created_at": "2026-11-14T13:39:01Z",
+ "git_sha": "b179f32b6e9a7302df4375c34f7d771a69230ac9",
+ "seed": 1,
+ "models": {
+  "base": {
+   "prior_trap_rate": {
+    "value": 0.5632911392405063,
+    "ci_low": 0.487012987012987,
+    "ci_high": 0.6411964415395788,
+    "n": 158
+   },
+   "tool_call_f1": {
+    "value": 0.52,
+    "ci_low": 0.445,
+    "ci_high": 0.59,
+    "n": 200
+   },
+   "tool_call_validity": {
+    "value": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 200
+   },
+   "normal_tool_f1": {
+    "value": 0.9523809523809523,
+    "ci_low": 0.8779725609756097,
+    "ci_high": 1.0,
+    "n": 42
+   }
+  },
+  "prompt_only": {
+   "prior_trap_rate": {
+    "value": 0.5443037974683544,
+    "ci_low": 0.46539778872731646,
+    "ci_high": 0.6257678606768257,
+    "n": 158
+   },
+   "tool_call_f1": {
+    "value": 0.525,
+    "ci_low": 0.45,
+    "ci_high": 0.59,
+    "n": 200
+   },
+   "tool_call_validity": {
+    "value": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 200
+   },
+   "normal_tool_f1": {
+    "value": 0.9285714285714286,
+    "ci_low": 0.8386721680420105,
+    "ci_high": 1.0,
+    "n": 42
+   }
+  },
+  "sft": {
+   "prior_trap_rate": {
+    "value": 0.03164556962025317,
+    "ci_low": 0.006328118780351883,
+    "ci_high": 0.0596095887694809,
+    "n": 158
+   },
+   "tool_call_f1": {
+    "value": 0.945,
+    "ci_low": 0.91,
+    "ci_high": 0.975,
+    "n": 200
+   },
+   "tool_call_validity": {
+    "value": 0.985,
+    "ci_low": 0.97,
+    "ci_high": 1.0,
+    "n": 200
+   },
+   "normal_tool_f1": {
+    "value": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 42
+   }
+  },
+  "tuned": {
+   "prior_trap_rate": {
+    "value": 0.03164556962025317,
+    "ci_low": 0.006328118780351883,
+    "ci_high": 0.0596095887694809,
+    "n": 158
+   },
+   "tool_call_f1": {
+    "value": 0.945,
+    "ci_low": 0.91,
+    "ci_high": 0.975,
+    "n": 200
+   },
+   "tool_call_validity": {
+    "value": 0.985,
+    "ci_low": 0.97,
+    "ci_high": 1.0,
+    "n": 200
+   },
+   "normal_tool_f1": {
+    "value": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 42
+   }
+  }
+ },
+ "tuned_path": "sft",
+ "sc001": {
+  "verdict": "met",
+  "gaps": {
+   "vs_base": {
+    "prior_trap_rate": {
+     "gap": 0.5316455696202531,
+     "ci_low": 0.4527748660610296,
+     "ci_high": 0.610407647907648
+    },
+    "tool_call_f1": {
+     "gap": 0.42499999999999993,
+     "ci_low": 0.355,
+     "ci_high": 0.49499999999999994
+    }
+   },
+   "vs_prompt_only": {
+    "prior_trap_rate": {
+     "gap": 0.5126582278481013,
+     "ci_low": 0.43125,
+     "ci_high": 0.5926164874551971
+    },
+    "tool_call_f1": {
+     "gap": 0.41999999999999993,
+     "ci_low": 0.3550000000000001,
+     "ci_high": 0.48999999999999994
+    }
+   }
+  }
+ },
+ "report_path": "report.md"
+}
+=== runB_seed1_h0: report.md ===
+SC-001 met: the tuned model (sft-only) beats base and prompt-only by at least 10 points on both prior-trap rate and tool-call F1; the smallest gap is 42.0 points (Tool-call F1 vs prompt-only, 95% CI 35.5 to 49.0).
+
+## The four metrics
+
+Each cell is the value with its 95% bootstrap interval, on 200 held-out examples (158 trap examples, 42 normal ones). Held-out means the tools never appeared in training.
+
+| Metric | Base | Prompt-only | SFT | Tuned |
+|---|---|---|---|---|
+| Prior-trap rate | 56.3% [48.7%, 64.1%] | 54.4% [46.5%, 62.6%] | 3.2% [0.6%, 6.0%] | 3.2% [0.6%, 6.0%] |
+| Tool-call F1 | 52.0% [44.5%, 59.0%] | 52.5% [45.0%, 59.0%] | 94.5% [91.0%, 97.5%] | 94.5% [91.0%, 97.5%] |
+| Tool-call validity | 100.0% [100.0%, 100.0%] | 100.0% [100.0%, 100.0%] | 98.5% [97.0%, 100.0%] | 98.5% [97.0%, 100.0%] |
+| Normal-tool F1 | 95.2% [87.8%, 100.0%] | 92.9% [83.9%, 100.0%] | 100.0% [100.0%, 100.0%] | 100.0% [100.0%, 100.0%] |
+
+- Prior-trap rate: how often the model followed habit against the tool documentation on trap examples. Lower is better.
+- Tool-call F1: how often the model produced exactly the right call. Higher is better.
+- Tool-call validity: share of answers that are a well-formed call to a known tool.
+- Normal-tool F1: tool-call F1 on tools with no twist.
+
+## The SC-001 gaps
+
+SC-001 asks for a gain of at least 10 points over both baselines on both prior-trap rate and tool-call F1, with the 95% interval above zero. Gaps are improvements, in points.
+
+| Comparison | Metric | Gap (points) | 95% CI (points) | At least 10 points, CI above 0 |
+|---|---|---|---|---|
+| vs base | Prior-trap rate | 53.2 | 45.3 to 61.0 | yes |
+| vs base | Tool-call F1 | 42.5 | 35.5 to 49.5 | yes |
+| vs prompt-only | Prior-trap rate | 51.3 | 43.1 to 59.3 | yes |
+| vs prompt-only | Tool-call F1 | 42.0 | 35.5 to 49.0 | yes |
+
+A gap whose interval includes zero is not evidence of a difference between the models.
+
+## What ran
+
+Path that ran: sft-only. No GRPO or rejection-sampling result was provided, so the tuned model is the SFT model (supervised fine-tuning on correct example calls) and the SFT and Tuned columns are identical.
+
+## A trap example
+
+The probe file was not found, so no trap example is quoted. `scripts/probe_base.py` writes results/base_probe.json.
+
+## Did normal tools get worse?
+
+E-3 (forgetting): normal-tool F1 did not drop by more than 5 points versus base (base 95.2%, tuned 100.0%).
+
+## Caveats
+
+- Only 200 held-out examples (n=200); the intervals show how much that sample alone could move the numbers.
+- One run on a single seed (seed 1): the intervals do not include run-to-run training variation.
+- The reward and the score are exact-match: two valid calls with different argument forms score 0.
+- Only invented tools were tested; nothing here says the model follows documentation for real-world APIs.
+######## runB_seed1_h0: exit 0 ########

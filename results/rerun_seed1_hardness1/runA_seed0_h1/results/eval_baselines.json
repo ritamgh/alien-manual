@@ -1,0 +1,71 @@
+{
+ "kind": "eval_baselines",
+ "schema_version": 1,
+ "created_at": "2026-11-14T12:33:26Z",
+ "git_sha": "b179f32b6e9a7302df4375c34f7d771a69230ac9",
+ "seed": 0,
+ "n_examples": 200,
+ "split": "heldout",
+ "model_revision": "main",
+ "decoding": {
+  "max_new_tokens": 256,
+  "temperature": 0.0,
+  "do_sample": false
+ },
+ "models": {
+  "base": {
+   "prior_trap_rate": {
+    "value": 0.8827160493827161,
+    "ci_low": 0.8342948717948718,
+    "ci_high": 0.9281544054747647,
+    "n": 162
+   },
+   "tool_call_f1": {
+    "value": 0.255,
+    "ci_low": 0.2,
+    "ci_high": 0.315,
+    "n": 200
+   },
+   "tool_call_validity": {
+    "value": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 200
+   },
+   "normal_tool_f1": {
+    "value": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 38
+   }
+  },
+  "prompt_only": {
+   "prior_trap_rate": {
+    "value": 0.8641975308641975,
+    "ci_low": 0.809793482083545,
+    "ci_high": 0.9136065943992773,
+    "n": 162
+   },
+   "tool_call_f1": {
+    "value": 0.27,
+    "ci_low": 0.214875,
+    "ci_high": 0.335,
+    "n": 200
+   },
+   "tool_call_validity": {
+    "value": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 200
+   },
+   "normal_tool_f1": {
+    "value": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 38
+   }
+  }
+ },
+ "gpu_seconds": 191.87600865200034,
+ "within_budget": true
+}
