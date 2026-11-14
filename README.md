@@ -44,14 +44,39 @@ Normal tools did not get worse: normal-tool F1 went from 97.4 (base) to 100.0 (t
 - Held-out tools are new tool names, in unseen domains, built from the same four note patterns as the training
   tools: an odd unit, flipped argument order, an inverted operation, a renamed tool. Docs are at hardness 0,
   where the twist is a plain "Note:" line.
-- Not shown: a new kind of rule the model never trained on, real-world APIs, other seeds, or run-to-run
-  training variation.
-- Seed 0 only, one training run. The CIs resample the 200 examples and do not include training variation.
+- Not shown: a new kind of rule the model never trained on, real-world APIs, or reworded notes after
+  training on plain notes (see the rerun section below for what was run).
+- The headline run is seed 0, one training run. A second seed (SFT only) is in the rerun section below. The
+  CIs resample the 200 examples and do not include training variation.
 - The 200 examples come from only 24 tools (3 domains, 8 tools each), so examples from one tool are not
   independent. The CIs resample examples, not tools, so they are probably narrower than they should be.
-- Per-reply model outputs and the trained adapters were not kept (no output files in this repo; the
-  checkpoints were recorded as `local/alien-sft` and `local/alien-grpo` with no revision), so the scores
-  cannot be re-derived from this repo alone.
+- For the headline run, per-reply model outputs and the trained adapters were not kept (no output files in
+  this repo; the checkpoints were recorded as `local/alien-sft` and `local/alien-grpo` with no revision), so
+  those scores cannot be re-derived from this repo alone. The rerun below keeps both.
+
+## Rerun: a second seed, reworded notes, outputs kept
+
+After the headline run we ran SFT again on Kaggle (T4), SFT only (no GRPO), and kept every reply. Same
+200-task held-out size, same scorer, unseen tools. Values are percentages. Files are in
+`results/rerun_seed1_hardness1/` (its README lists the exact configs and library versions); the trained
+adapters and per-reply outputs are public on Hugging Face.
+
+| Run | What changed | Base | Prompt-only | SFT |
+|---|---|---|---|---|
+| A | seed 0, hardness 1 (the twist is folded into the parameter text, no separate "Note:" line) | trap 88.3, F1 25.5 | trap 86.4, F1 27.0 | trap 1.9, F1 98.5 |
+| B | seed 1, hardness 0 (same docs as the headline run, new split) | trap 56.3, F1 52.0 | trap 54.4, F1 52.5 | trap 3.2, F1 94.5 |
+
+- Run A's SFT was trained on hardness-1 docs, so it shows the model learned the reworded format. It does not
+  show that a model trained on plain notes survives reworded notes; that was not run.
+- Run B is a second seed on the original setup: close to the headline run (6.8% trap, 94.5% F1), which
+  supports that the SFT gain is not a one-seed fluke. Two seeds is still few.
+- A first pass of these runs was lost when the Kaggle session was recycled. Its printed results were recovered
+  from a saved notebook; run A matched exactly, run B's SFT differed slightly (3.8% trap, 94.0% F1 in the
+  first pass). The results README lists both.
+- All six reply files were re-scored with this repo's scorer and match the table.
+- Hugging Face: models collection https://huggingface.co/collections/ignAtom/alien-manual-models-6af86497982acc9f5a5dda9f
+  and datasets collection https://huggingface.co/collections/ignAtom/alien-manual-datasets-6af86498982acc9f5a5ddaab
+  (LoRA adapters only; the base model's licence is cc-by-nc-4.0, so these are for non-commercial use).
 
 ## The first attempt failed, and we changed the split
 
@@ -80,7 +105,8 @@ explanation and was not tested separately, for example by retraining.
 - `scripts/`: probe, baseline eval, SFT, GRPO (with a rejection-sampling fallback), report builder,
   results checker, and a run-everything shell script.
 - `results/`: the JSON from the final run (`base_probe`, `eval_baselines`, `sft`, `grpo`, `final`, `spike`).
-  `results/first_run_twist_holdout/` holds the failed first run.
+  `results/first_run_twist_holdout/` holds the failed first run. `results/rerun_seed1_hardness1/` holds the
+  rerun (second seed, reworded notes) with per-reply outputs.
 - `report.md`: the generated report for the final run (first line is the SC-001 verdict).
 - `RUNBOOK.md`: how to reproduce, step by step.
 - `space/`: code for a Gradio demo Space. It has not been deployed.
@@ -96,7 +122,7 @@ licence of the gated model.
 
 - Invented tools only. Nothing here shows the model follows docs for real APIs.
 - Four contradiction patterns, fixed wording, easiest docs setting. Not a new kind of rule.
-- One seed, 24 held-out tools, intervals probably too narrow.
+- Two seeds (SFT only for the second), about 24 held-out tools per split, intervals probably too narrow.
 - The gain is from SFT. GRPO is not shown to help.
 - Exact match: two valid calls written differently score 0.
 - The first split failed; the second was chosen after that.

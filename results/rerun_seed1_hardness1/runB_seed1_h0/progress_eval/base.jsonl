@@ -1,0 +1,200 @@
+{"id": "heldout-0000", "output": "{\"name\": \"fix_zamvir\", \"arguments\": {\"entry\": \"B-21\", \"value\": 88}}"}
+{"id": "heldout-0001", "output": "{\"name\": \"tune_nukdamsur\", \"arguments\": {\"entry\": \"B-65\", \"reading\": 820}}"}
+{"id": "heldout-0002", "output": "{\"name\": \"relocate_rizekno\", \"arguments\": {\"item\": \"P-88\", \"source\": \"dock-2\", \"target\": \"dock-6\"}}"}
+{"id": "heldout-0003", "output": "{\"name\": \"tune_nukdamsur\", \"arguments\": {\"entry\": \"B-43\", \"reading\": 6300}}"}
+{"id": "heldout-0004", "output": "{\"name\": \"boost_gixkorran\", \"arguments\": {\"entry\": \"P-32\", \"change\": 7}}"}
+{"id": "heldout-0005", "output": "{\"name\": \"raise_dommapu\", \"arguments\": {\"ref\": \"F-90\", \"amount\": -29}}"}
+{"id": "heldout-0006", "output": "{\"name\": \"raise_riponpin\", \"arguments\": {\"subject\": \"B-52\", \"change\": 18}}"}
+{"id": "heldout-0007", "output": "{\"name\": \"tune_rexpuxre\", \"arguments\": {\"item\": \"F-21\", \"reading\": 600}}"}
+{"id": "heldout-0008", "output": "{\"name\": \"move_kekne\", \"arguments\": {\"item\": \"B-22\", \"from_id\": \"sector-6\", \"to_id\": \"sector-5\"}}"}
+{"id": "heldout-0009", "output": "{\"name\": \"acquire_dunquak\", \"arguments\": {\"subject\": \"P-41\"}}"}
+{"id": "heldout-0010", "output": "{\"name\": \"relocate_rizekno\", \"arguments\": {\"item\": \"P-95\", \"source\": \"dock-8\", \"target\": \"dock-1\"}}"}
+{"id": "heldout-0011", "output": "{\"name\": \"tune_rexpuxre\", \"arguments\": {\"item\": \"F-56\", \"reading\": 420}}"}
+{"id": "heldout-0012", "output": "{\"name\": \"relocate_gurzavax\", \"arguments\": {\"entry\": \"B-50\", \"src\": \"sector-3\", \"dst\": \"sector-9\"}}"}
+{"id": "heldout-0013", "output": "{\"name\": \"move_kekne\", \"arguments\": {\"item\": \"B-16\", \"from_id\": \"sector-6\", \"to_id\": \"sector-9\"}}"}
+{"id": "heldout-0014", "output": "{\"name\": \"fix_zorthorbon\", \"arguments\": {\"entry\": \"P-76\", \"reading\": 890}}"}
+{"id": "heldout-0015", "output": "{\"name\": \"shift_dikner\", \"arguments\": {\"ref\": \"F-44\", \"from_id\": \"zone-1\", \"to_id\": \"zone-6\"}}"}
+{"id": "heldout-0016", "output": "{\"name\": \"boost_gixkorran\", \"arguments\": {\"entry\": \"P-41\", \"change\": 12}}"}
+{"id": "heldout-0017", "output": "{\"name\": \"fix_zorthorbon\", \"arguments\": {\"entry\": \"P-76\", \"reading\": 620}}"}
+{"id": "heldout-0018", "output": "{\"name\": \"set_kirza\", \"arguments\": {\"subject\": \"F-63\", \"reading\": 77}}"}
+{"id": "heldout-0019", "output": "{\"name\": \"acquire_dunquak\", \"arguments\": {\"subject\": \"P-95\"}}"}
+{"id": "heldout-0020", "output": "{\"name\": \"summon_perdimsek\", \"arguments\": {\"subject\": \"F-94\", \"src\": \"zone-4\", \"dst\": \"zone-9\"}}"}
+{"id": "heldout-0021", "output": "{\"name\": \"relocate_gurzavax\", \"arguments\": {\"entry\": \"B-73\", \"src\": \"sector-8\", \"dst\": \"sector-9\"}}"}
+{"id": "heldout-0022", "output": "{\"name\": \"increase_quorornun\", \"arguments\": {\"entry\": \"F-78\", \"delta\": -36}}"}
+{"id": "heldout-0023", "output": "{\"name\": \"fix_zamvir\", \"arguments\": {\"entry\": \"B-18\", \"value\": 69}}"}
+{"id": "heldout-0024", "output": "{\"name\": \"retrieve_zempixrar\", \"arguments\": {\"entry\": \"B-25\"}}"}
+{"id": "heldout-0025", "output": "{\"name\": \"shift_dikner\", \"arguments\": {\"ref\": \"F-65\", \"from_id\": \"zone-9\", \"to_id\": \"zone-5\"}}"}
+{"id": "heldout-0026", "output": "{\"name\": \"retrieve_thumgak\", \"arguments\": {\"subject\": \"B-66\", \"origin\": \"sector-2\", \"dest\": \"sector-9\"}}"}
+{"id": "heldout-0027", "output": "{\"name\": \"set_kirza\", \"arguments\": {\"subject\": \"F-97\", \"reading\": 420}}"}
+{"id": "heldout-0028", "output": "{\"name\": \"tune_rexpuxre\", \"arguments\": {\"item\": \"F-78\", \"reading\": 4900}}"}
+{"id": "heldout-0029", "output": "{\"name\": \"raise_riponpin\", \"arguments\": {\"subject\": \"B-67\", \"change\": 35}}"}
+{"id": "heldout-0030", "output": "{\"name\": \"carry_goxsenthek\", \"arguments\": {\"ref\": \"P-99\", \"origin\": \"dock-2\", \"dest\": \"dock-7\"}}"}
+{"id": "heldout-0031", "output": "{\"name\": \"carry_boxsatir\", \"arguments\": {\"entry\": \"F-42\", \"source\": \"zone-7\", \"target\": \"zone-9\"}}"}
+{"id": "heldout-0032", "output": "{\"name\": \"shift_dikner\", \"arguments\": {\"ref\": \"F-94\", \"from_id\": \"zone-8\", \"to_id\": \"zone-2\"}}"}
+{"id": "heldout-0033", "output": "{\"name\": \"shift_dikner\", \"arguments\": {\"ref\": \"F-62\", \"from_id\": \"zone-6\", \"to_id\": \"zone-9\"}}"}
+{"id": "heldout-0034", "output": "{\"name\": \"shift_quimmok\", \"arguments\": {\"entry\": \"P-32\", \"src\": \"dock-9\", \"dst\": \"dock-8\"}}"}
+{"id": "heldout-0035", "output": "{\"name\": \"increase_quorornun\", \"arguments\": {\"entry\": \"F-12\", \"delta\": -14}}"}
+{"id": "heldout-0036", "output": "{\"name\": \"shift_quimmok\", \"arguments\": {\"entry\": \"P-28\", \"src\": \"dock-8\", \"dst\": \"dock-2\"}}"}
+{"id": "heldout-0037", "output": "{\"name\": \"raise_dommapu\", \"arguments\": {\"ref\": \"F-60\", \"amount\": 25}}"}
+{"id": "heldout-0038", "output": "{\"name\": \"set_kirza\", \"arguments\": {\"subject\": \"F-34\", \"reading\": 220}}"}
+{"id": "heldout-0039", "output": "{\"name\": \"shift_ginmex\", \"arguments\": {\"ref\": \"P-59\", \"src\": \"3\", \"dst\": \"5\"}}"}
+{"id": "heldout-0040", "output": "{\"name\": \"acquire_dunquak\", \"arguments\": {\"subject\": \"P-31\"}}"}
+{"id": "heldout-0041", "output": "{\"name\": \"shift_quimmok\", \"arguments\": {\"entry\": \"P-33\", \"src\": \"dock-1\", \"dst\": \"dock-5\"}}"}
+{"id": "heldout-0042", "output": "{\"name\": \"tune_nukdamsur\", \"arguments\": {\"entry\": \"B-59\", \"reading\": 600}}"}
+{"id": "heldout-0043", "output": "{\"name\": \"move_kekne\", \"arguments\": {\"item\": \"B-54\", \"from_id\": \"5\", \"to_id\": \"3\"}}"}
+{"id": "heldout-0044", "output": "{\"name\": \"retrieve_thumgak\", \"arguments\": {\"subject\": \"B-42\", \"origin\": \"sector-7\", \"dest\": \"sector-8\"}}"}
+{"id": "heldout-0045", "output": "{\"name\": \"set_kirza\", \"arguments\": {\"subject\": \"F-34\", \"reading\": 95}}"}
+{"id": "heldout-0046", "output": "{\"name\": \"shift_quimmok\", \"arguments\": {\"entry\": \"P-52\", \"src\": \"dock-8\", \"dst\": \"dock-2\"}}"}
+{"id": "heldout-0047", "output": "{\"name\": \"relocate_rizekno\", \"arguments\": {\"item\": \"P-27\", \"source\": \"dock-3\", \"target\": \"dock-5\"}}"}
+{"id": "heldout-0048", "output": "{\"name\": \"set_kirza\", \"arguments\": {\"subject\": \"F-83\", \"reading\": 260}}"}
+{"id": "heldout-0049", "output": "{\"name\": \"raise_dommapu\", \"arguments\": {\"ref\": \"F-90\", \"amount\": 30}}"}
+{"id": "heldout-0050", "output": "{\"name\": \"raise_riponpin\", \"arguments\": {\"subject\": \"B-98\", \"change\": -34}}"}
+{"id": "heldout-0051", "output": "{\"name\": \"relocate_gurzavax\", \"arguments\": {\"entry\": \"B-14\", \"src\": \"sector-7\", \"dst\": \"sector-2\"}}"}
+{"id": "heldout-0052", "output": "{\"name\": \"shift_ginmex\", \"arguments\": {\"ref\": \"P-41\", \"src\": \"dock-5\", \"dst\": \"dock-6\"}}"}
+{"id": "heldout-0053", "output": "{\"name\": \"increase_sonthem\", \"arguments\": {\"item\": \"P-53\", \"change\": -27}}"}
+{"id": "heldout-0054", "output": "{\"name\": \"carry_boxsatir\", \"arguments\": {\"entry\": \"F-74\", \"source\": \"zone-2\", \"target\": \"zone-4\"}}"}
+{"id": "heldout-0055", "output": "{\"name\": \"boost_gixkorran\", \"arguments\": {\"entry\": \"P-49\", \"change\": -44}}"}
+{"id": "heldout-0056", "output": "{\"name\": \"summon_perdimsek\", \"arguments\": {\"subject\": \"F-54\", \"src\": \"zone-5\", \"dst\": \"zone-2\"}}"}
+{"id": "heldout-0057", "output": "{\"name\": \"shift_ginmex\", \"arguments\": {\"ref\": \"P-95\", \"src\": \"dock-7\", \"dst\": \"dock-4\"}}"}
+{"id": "heldout-0058", "output": "{\"name\": \"raise_dommapu\", \"arguments\": {\"ref\": \"F-81\", \"amount\": 33}}"}
+{"id": "heldout-0059", "output": "{\"name\": \"shift_ginmex\", \"arguments\": {\"ref\": \"P-61\", \"src\": \"dock-1\", \"dst\": \"dock-7\"}}"}
+{"id": "heldout-0060", "output": "{\"name\": \"carry_boxsatir\", \"arguments\": {\"entry\": \"F-22\", \"source\": \"zone-5\", \"target\": \"zone-3\"}}"}
+{"id": "heldout-0061", "output": "{\"name\": \"carry_goxsenthek\", \"arguments\": {\"ref\": \"P-80\", \"origin\": \"dock-3\", \"dest\": \"dock-5\"}}"}
+{"id": "heldout-0062", "output": "{\"name\": \"boost_gixkorran\", \"arguments\": {\"entry\": \"P-11\", \"change\": 34}}"}
+{"id": "heldout-0063", "output": "{\"name\": \"relocate_rizekno\", \"arguments\": {\"item\": \"P-95\", \"source\": \"dock-9\", \"target\": \"dock-7\"}}"}
+{"id": "heldout-0064", "output": "{\"name\": \"set_kirza\", \"arguments\": {\"subject\": \"F-70\", \"reading\": 30}}"}
+{"id": "heldout-0065", "output": "{\"name\": \"shift_nukquuk\", \"arguments\": {\"ref\": \"F-62\", \"src\": \"zone-4\", \"dst\": \"zone-7\"}}"}
+{"id": "heldout-0066", "output": "{\"name\": \"retrieve_zempixrar\", \"arguments\": {\"entry\": \"B-49\"}}"}
+{"id": "heldout-0067", "output": "{\"name\": \"tune_nukdamsur\", \"arguments\": {\"entry\": \"B-11\", \"reading\": 300}}"}
+{"id": "heldout-0068", "output": "{\"name\": \"boost_gixkorran\", \"arguments\": {\"entry\": \"P-32\", \"change\": -27}}"}
+{"id": "heldout-0069", "output": "{\"name\": \"increase_quorornun\", \"arguments\": {\"entry\": \"F-68\", \"delta\": -38}}"}
+{"id": "heldout-0070", "output": "{\"name\": \"move_kekne\", \"arguments\": {\"item\": \"B-68\", \"from_id\": \"sector-4\", \"to_id\": \"sector-6\"}}"}
+{"id": "heldout-0071", "output": "{\"name\": \"fix_zamvir\", \"arguments\": {\"entry\": \"B-20\", \"value\": 300}}"}
+{"id": "heldout-0072", "output": "{\"name\": \"shift_quimmok\", \"arguments\": {\"entry\": \"P-27\", \"src\": \"dock-8\", \"dst\": \"dock-4\"}}"}
+{"id": "heldout-0073", "output": "{\"name\": \"shift_quimmok\", \"arguments\": {\"entry\": \"P-64\", \"src\": \"dock-5\", \"dst\": \"dock-3\"}}"}
+{"id": "heldout-0074", "output": "{\"name\": \"raise_riponpin\", \"arguments\": {\"subject\": \"B-49\", \"change\": -46}}"}
+{"id": "heldout-0075", "output": "{\"name\": \"fix_zorthorbon\", \"arguments\": {\"entry\": \"P-38\", \"reading\": 420}}"}
+{"id": "heldout-0076", "output": "{\"name\": \"fix_zamvir\", \"arguments\": {\"entry\": \"B-42\", \"value\": 22}}"}
+{"id": "heldout-0077", "output": "{\"name\": \"shift_nukquuk\", \"arguments\": {\"ref\": \"F-43\", \"src\": \"zone-2\", \"dst\": \"zone-5\"}}"}
+{"id": "heldout-0078", "output": "{\"name\": \"shift_nukquuk\", \"arguments\": {\"ref\": \"F-69\", \"src\": \"zone-3\", \"dst\": \"zone-1\"}}"}
+{"id": "heldout-0079", "output": "{\"name\": \"relocate_gurzavax\", \"arguments\": {\"entry\": \"B-14\", \"src\": \"sector-3\", \"dst\": \"sector-8\"}}"}
+{"id": "heldout-0080", "output": "{\"name\": \"summon_perdimsek\", \"arguments\": {\"subject\": \"F-63\", \"src\": \"zone-7\", \"dst\": \"zone-5\"}}"}
+{"id": "heldout-0081", "output": "{\"name\": \"increase_sonthem\", \"arguments\": {\"item\": \"P-32\", \"change\": 24}}"}
+{"id": "heldout-0082", "output": "{\"name\": \"increase_sonthem\", \"arguments\": {\"item\": \"P-29\", \"change\": -27}}"}
+{"id": "heldout-0083", "output": "{\"name\": \"fix_zorthorbon\", \"arguments\": {\"entry\": \"P-44\", \"reading\": 490}}"}
+{"id": "heldout-0084", "output": "{\"name\": \"retrieve_thumgak\", \"arguments\": {\"subject\": \"B-11\", \"origin\": \"sector-9\", \"dest\": \"sector-6\"}}"}
+{"id": "heldout-0085", "output": "{\"name\": \"increase_quorornun\", \"arguments\": {\"entry\": \"F-78\", \"delta\": -13}}"}
+{"id": "heldout-0086", "output": "{\"name\": \"increase_sonthem\", \"arguments\": {\"item\": \"P-47\", \"change\": -40}}"}
+{"id": "heldout-0087", "output": "{\"name\": \"raise_zimkikmux\", \"arguments\": {\"item\": \"B-57\", \"amount\": -17}}"}
+{"id": "heldout-0088", "output": "{\"name\": \"relocate_gurzavax\", \"arguments\": {\"entry\": \"B-18\", \"src\": \"sector-8\", \"dst\": \"sector-9\"}}"}
+{"id": "heldout-0089", "output": "{\"name\": \"set_kirza\", \"arguments\": {\"subject\": \"F-52\", \"reading\": 480}}"}
+{"id": "heldout-0090", "output": "{\"name\": \"retrieve_zempixrar\", \"arguments\": {\"entry\": \"B-38\"}}"}
+{"id": "heldout-0091", "output": "{\"name\": \"boost_gixkorran\", \"arguments\": {\"entry\": \"P-48\", \"change\": 28}}"}
+{"id": "heldout-0092", "output": "{\"name\": \"move_kekne\", \"arguments\": {\"item\": \"B-65\", \"from_id\": \"sector-8\", \"to_id\": \"sector-9\"}}"}
+{"id": "heldout-0093", "output": "{\"name\": \"raise_dommapu\", \"arguments\": {\"ref\": \"F-51\", \"amount\": -14}}"}
+{"id": "heldout-0094", "output": "{\"name\": \"shift_ginmex\", \"arguments\": {\"ref\": \"P-89\", \"src\": \"dock-1\", \"dst\": \"dock-4\"}}"}
+{"id": "heldout-0095", "output": "{\"name\": \"retrieve_zempixrar\", \"arguments\": {\"entry\": \"B-14\"}}"}
+{"id": "heldout-0096", "output": "{\"name\": \"shift_ginmex\", \"arguments\": {\"ref\": \"P-92\", \"src\": \"dock-7\", \"dst\": \"dock-3\"}}"}
+{"id": "heldout-0097", "output": "{\"name\": \"retrieve_thumgak\", \"arguments\": {\"subject\": \"B-49\", \"origin\": \"sector-2\", \"dest\": \"sector-8\"}}"}
+{"id": "heldout-0098", "output": "{\"name\": \"relocate_gurzavax\", \"arguments\": {\"entry\": \"B-72\", \"src\": \"sector-4\", \"dst\": \"sector-6\"}}"}
+{"id": "heldout-0099", "output": "{\"name\": \"move_kekne\", \"arguments\": {\"item\": \"B-59\", \"from_id\": \"sector-1\", \"to_id\": \"sector-5\"}}"}
+{"id": "heldout-0100", "output": "{\"name\": \"tune_rexpuxre\", \"arguments\": {\"item\": \"F-37\", \"reading\": 4900}}"}
+{"id": "heldout-0101", "output": "{\"name\": \"acquire_dunquak\", \"arguments\": {\"subject\": \"P-26\"}}"}
+{"id": "heldout-0102", "output": "{\"name\": \"retrieve_thumgak\", \"arguments\": {\"subject\": \"B-32\", \"origin\": \"sector-2\", \"dest\": \"sector-3\"}}"}
+{"id": "heldout-0103", "output": "{\"name\": \"shift_ginmex\", \"arguments\": {\"ref\": \"P-39\", \"src\": \"dock-7\", \"dst\": \"dock-4\"}}"}
+{"id": "heldout-0104", "output": "{\"name\": \"raise_dommapu\", \"arguments\": {\"ref\": \"F-66\", \"amount\": -31}}"}
+{"id": "heldout-0105", "output": "{\"name\": \"retrieve_zempixrar\", \"arguments\": {\"entry\": \"B-75\"}}"}
+{"id": "heldout-0106", "output": "{\"name\": \"summon_perdimsek\", \"arguments\": {\"subject\": \"F-37\", \"src\": \"zone-4\", \"dst\": \"zone-7\"}}"}
+{"id": "heldout-0107", "output": "{\"name\": \"shift_nukquuk\", \"arguments\": {\"ref\": \"F-33\", \"src\": \"zone-2\", \"dst\": \"zone-3\"}}"}
+{"id": "heldout-0108", "output": "{\"name\": \"acquire_dunquak\", \"arguments\": {\"subject\": \"P-96\"}}"}
+{"id": "heldout-0109", "output": "{\"name\": \"retrieve_thumgak\", \"arguments\": {\"subject\": \"B-95\", \"origin\": \"sector-9\", \"dest\": \"sector-6\"}}"}
+{"id": "heldout-0110", "output": "{\"name\": \"carry_boxsatir\", \"arguments\": {\"entry\": \"F-63\", \"source\": \"zone-5\", \"target\": \"zone-6\"}}"}
+{"id": "heldout-0111", "output": "{\"name\": \"shift_dikner\", \"arguments\": {\"ref\": \"F-30\", \"from_id\": \"zone-1\", \"to_id\": \"zone-4\"}}"}
+{"id": "heldout-0112", "output": "{\"name\": \"retrieve_thumgak\", \"arguments\": {\"subject\": \"B-87\", \"origin\": \"sector-1\", \"dest\": \"sector-4\"}}"}
+{"id": "heldout-0113", "output": "{\"name\": \"shift_quimmok\", \"arguments\": {\"entry\": \"P-47\", \"src\": \"dock-2\", \"dst\": \"dock-5\"}}"}
+{"id": "heldout-0114", "output": "{\"name\": \"fix_zorthorbon\", \"arguments\": {\"entry\": \"P-72\", \"reading\": 830}}"}
+{"id": "heldout-0115", "output": "{\"name\": \"raise_riponpin\", \"arguments\": {\"subject\": \"B-42\", \"change\": 23}}"}
+{"id": "heldout-0116", "output": "{\"name\": \"fix_zorthorbon\", \"arguments\": {\"entry\": \"P-58\", \"reading\": 59}}"}
+{"id": "heldout-0117", "output": "{\"name\": \"move_kekne\", \"arguments\": {\"item\": \"B-36\", \"from_id\": \"sector-6\", \"to_id\": \"sector-9\"}}"}
+{"id": "heldout-0118", "output": "{\"name\": \"fix_zamvir\", \"arguments\": {\"entry\": \"B-85\", \"value\": 78}}"}
+{"id": "heldout-0119", "output": "{\"name\": \"retrieve_thumgak\", \"arguments\": {\"subject\": \"B-65\", \"origin\": \"sector-2\", \"dest\": \"sector-1\"}}"}
+{"id": "heldout-0120", "output": "{\"name\": \"summon_perdimsek\", \"arguments\": {\"subject\": \"F-18\", \"src\": \"zone-3\", \"dst\": \"zone-6\"}}"}
+{"id": "heldout-0121", "output": "{\"name\": \"summon_perdimsek\", \"arguments\": {\"subject\": \"F-80\", \"src\": \"zone-3\", \"dst\": \"zone-2\"}}"}
+{"id": "heldout-0122", "output": "{\"name\": \"increase_quorornun\", \"arguments\": {\"entry\": \"F-39\", \"delta\": -48}}"}
+{"id": "heldout-0123", "output": "{\"name\": \"relocate_gurzavax\", \"arguments\": {\"entry\": \"B-15\", \"src\": \"sector-5\", \"dst\": \"sector-7\"}}"}
+{"id": "heldout-0124", "output": "{\"name\": \"boost_gixkorran\", \"arguments\": {\"entry\": \"P-63\", \"change\": -31}}"}
+{"id": "heldout-0125", "output": "{\"name\": \"raise_zimkikmux\", \"arguments\": {\"item\": \"B-44\", \"amount\": -17}}"}
+{"id": "heldout-0126", "output": "{\"name\": \"boost_gixkorran\", \"arguments\": {\"entry\": \"P-29\", \"change\": 50}}"}
+{"id": "heldout-0127", "output": "{\"name\": \"fix_zamvir\", \"arguments\": {\"entry\": \"B-42\", \"value\": 670}}"}
+{"id": "heldout-0128", "output": "{\"name\": \"tune_nukdamsur\", \"arguments\": {\"entry\": \"B-67\", \"reading\": 200}}"}
+{"id": "heldout-0129", "output": "{\"name\": \"raise_riponpin\", \"arguments\": {\"subject\": \"B-10\", \"change\": -3}}"}
+{"id": "heldout-0130", "output": "{\"name\": \"relocate_rizekno\", \"arguments\": {\"item\": \"P-46\", \"source\": \"dock-5\", \"target\": \"dock-3\"}}"}
+{"id": "heldout-0131", "output": "{\"name\": \"tune_nukdamsur\", \"arguments\": {\"entry\": \"B-29\", \"reading\": 2400}}"}
+{"id": "heldout-0132", "output": "{\"name\": \"carry_boxsatir\", \"arguments\": {\"entry\": \"F-94\", \"source\": \"zone-7\", \"target\": \"zone-3\"}}"}
+{"id": "heldout-0133", "output": "{\"name\": \"retrieve_zempixrar\", \"arguments\": {\"entry\": \"B-71\"}}"}
+{"id": "heldout-0134", "output": "{\"name\": \"increase_quorornun\", \"arguments\": {\"entry\": \"F-29\", \"delta\": 5}}"}
+{"id": "heldout-0135", "output": "{\"name\": \"carry_boxsatir\", \"arguments\": {\"entry\": \"F-39\", \"source\": \"zone-4\", \"target\": \"zone-2\"}}"}
+{"id": "heldout-0136", "output": "{\"name\": \"acquire_dunquak\", \"arguments\": {\"subject\": \"P-30\"}}"}
+{"id": "heldout-0137", "output": "{\"name\": \"fix_zorthorbon\", \"arguments\": {\"entry\": \"P-72\", \"reading\": 870}}"}
+{"id": "heldout-0138", "output": "{\"name\": \"boost_gixkorran\", \"arguments\": {\"entry\": \"P-74\", \"change\": 4}}"}
+{"id": "heldout-0139", "output": "{\"name\": \"shift_nukquuk\", \"arguments\": {\"ref\": \"F-61\", \"src\": \"zone-1\", \"dst\": \"zone-3\"}}"}
+{"id": "heldout-0140", "output": "{\"name\": \"shift_nukquuk\", \"arguments\": {\"ref\": \"F-58\", \"src\": \"zone-2\", \"dst\": \"zone-3\"}}"}
+{"id": "heldout-0141", "output": "{\"name\": \"tune_rexpuxre\", \"arguments\": {\"item\": \"F-26\", \"reading\": 7800}}"}
+{"id": "heldout-0142", "output": "{\"name\": \"move_kekne\", \"arguments\": {\"item\": \"B-46\", \"from_id\": \"sector-2\", \"to_id\": \"sector-4\"}}"}
+{"id": "heldout-0143", "output": "{\"name\": \"tune_rexpuxre\", \"arguments\": {\"item\": \"F-24\", \"reading\": 910}}"}
+{"id": "heldout-0144", "output": "{\"name\": \"raise_riponpin\", \"arguments\": {\"subject\": \"B-33\", \"change\": 14}}"}
+{"id": "heldout-0145", "output": "{\"name\": \"relocate_rizekno\", \"arguments\": {\"item\": \"P-83\", \"source\": \"dock-6\", \"target\": \"dock-5\"}}"}
+{"id": "heldout-0146", "output": "{\"name\": \"move_kekne\", \"arguments\": {\"item\": \"B-28\", \"from_id\": \"sector-8\", \"to_id\": \"sector-5\"}}"}
+{"id": "heldout-0147", "output": "{\"name\": \"acquire_dunquak\", \"arguments\": {\"subject\": \"P-70\"}}"}
+{"id": "heldout-0148", "output": "{\"name\": \"raise_zimkikmux\", \"arguments\": {\"item\": \"B-80\", \"amount\": 7}}"}
+{"id": "heldout-0149", "output": "{\"name\": \"boost_gixkorran\", \"arguments\": {\"entry\": \"P-42\", \"change\": 46}}"}
+{"id": "heldout-0150", "output": "{\"name\": \"set_kirza\", \"arguments\": {\"subject\": \"F-68\", \"reading\": 290}}"}
+{"id": "heldout-0151", "output": "{\"name\": \"move_kekne\", \"arguments\": {\"item\": \"B-56\", \"from_id\": \"sector-8\", \"to_id\": \"sector-4\"}}"}
+{"id": "heldout-0152", "output": "{\"name\": \"summon_perdimsek\", \"arguments\": {\"subject\": \"F-43\", \"src\": \"zone-9\", \"dst\": \"zone-8\"}}"}
+{"id": "heldout-0153", "output": "{\"name\": \"tune_nukdamsur\", \"arguments\": {\"entry\": \"B-25\", \"reading\": 740}}"}
+{"id": "heldout-0154", "output": "{\"name\": \"shift_nukquuk\", \"arguments\": {\"ref\": \"F-15\", \"src\": \"zone-9\", \"dst\": \"zone-5\"}}"}
+{"id": "heldout-0155", "output": "{\"name\": \"relocate_gurzavax\", \"arguments\": {\"entry\": \"B-92\", \"src\": \"sector-1\", \"dst\": \"sector-3\"}}"}
+{"id": "heldout-0156", "output": "{\"name\": \"tune_nukdamsur\", \"arguments\": {\"entry\": \"B-69\", \"reading\": 600}}"}
+{"id": "heldout-0157", "output": "{\"name\": \"tune_nukdamsur\", \"arguments\": {\"entry\": \"B-98\", \"reading\": 7900}}"}
+{"id": "heldout-0158", "output": "{\"name\": \"raise_riponpin\", \"arguments\": {\"subject\": \"B-94\", \"change\": 34}}"}
+{"id": "heldout-0159", "output": "{\"name\": \"raise_dommapu\", \"arguments\": {\"ref\": \"F-97\", \"amount\": 20}}"}
+{"id": "heldout-0160", "output": "{\"name\": \"increase_sonthem\", \"arguments\": {\"item\": \"P-60\", \"change\": -38}}"}
+{"id": "heldout-0161", "output": "{\"name\": \"fix_zorthorbon\", \"arguments\": {\"entry\": \"P-34\", \"reading\": 670}}"}
+{"id": "heldout-0162", "output": "{\"name\": \"carry_goxsenthek\", \"arguments\": {\"ref\": \"P-49\", \"origin\": \"dock-1\", \"dest\": \"dock-4\"}}"}
+{"id": "heldout-0163", "output": "{\"name\": \"fix_zamvir\", \"arguments\": {\"entry\": \"B-73\", \"value\": 57}}"}
+{"id": "heldout-0164", "output": "{\"name\": \"fix_zamvir\", \"arguments\": {\"entry\": \"B-52\", \"value\": 52}}"}
+{"id": "heldout-0165", "output": "{\"name\": \"increase_sonthem\", \"arguments\": {\"item\": \"P-56\", \"change\": -32}}"}
+{"id": "heldout-0166", "output": "{\"name\": \"raise_zimkikmux\", \"arguments\": {\"item\": \"B-81\", \"amount\": -1}}"}
+{"id": "heldout-0167", "output": "{\"name\": \"relocate_rizekno\", \"arguments\": {\"item\": \"P-62\", \"source\": \"dock-1\", \"target\": \"dock-7\"}}"}
+{"id": "heldout-0168", "output": "{\"name\": \"fix_zorthorbon\", \"arguments\": {\"entry\": \"P-49\", \"reading\": 700}}"}
+{"id": "heldout-0169", "output": "{\"name\": \"retrieve_zempixrar\", \"arguments\": {\"entry\": \"B-99\"}}"}
+{"id": "heldout-0170", "output": "{\"name\": \"raise_dommapu\", \"arguments\": {\"ref\": \"F-52\", \"amount\": 4}}"}
+{"id": "heldout-0171", "output": "{\"name\": \"increase_quorornun\", \"arguments\": {\"entry\": \"F-28\", \"delta\": -2}}"}
+{"id": "heldout-0172", "output": "{\"name\": \"tune_rexpuxre\", \"arguments\": {\"item\": \"F-48\", \"reading\": 2600}}"}
+{"id": "heldout-0173", "output": "{\"name\": \"raise_zimkikmux\", \"arguments\": {\"item\": \"B-26\", \"amount\": -23}}"}
+{"id": "heldout-0174", "output": "{\"name\": \"raise_zimkikmux\", \"arguments\": {\"item\": \"B-18\", \"amount\": 30}}"}
+{"id": "heldout-0175", "output": "{\"name\": \"summon_perdimsek\", \"arguments\": {\"subject\": \"F-72\", \"src\": \"zone-2\", \"dst\": \"zone-3\"}}"}
+{"id": "heldout-0176", "output": "{\"name\": \"summon_perdimsek\", \"arguments\": {\"subject\": \"F-78\", \"src\": \"zone-5\", \"dst\": \"zone-4\"}}"}
+{"id": "heldout-0177", "output": "{\"name\": \"shift_nukquuk\", \"arguments\": {\"ref\": \"F-40\", \"src\": \"zone-7\", \"dst\": \"zone-9\"}}"}
+{"id": "heldout-0178", "output": "{\"name\": \"shift_dikner\", \"arguments\": {\"ref\": \"F-88\", \"from_id\": \"zone-3\", \"to_id\": \"zone-8\"}}"}
+{"id": "heldout-0179", "output": "{\"name\": \"carry_goxsenthek\", \"arguments\": {\"ref\": \"P-24\", \"origin\": \"dock-7\", \"dest\": \"dock-4\"}}"}
+{"id": "heldout-0180", "output": "{\"name\": \"increase_quorornun\", \"arguments\": {\"entry\": \"F-32\", \"delta\": 29}}"}
+{"id": "heldout-0181", "output": "{\"name\": \"raise_zimkikmux\", \"arguments\": {\"item\": \"B-38\", \"amount\": 38}}"}
+{"id": "heldout-0182", "output": "{\"name\": \"retrieve_thumgak\", \"arguments\": {\"subject\": \"B-67\", \"origin\": \"sector-1\", \"dest\": \"sector-8\"}}"}
+{"id": "heldout-0183", "output": "{\"name\": \"carry_goxsenthek\", \"arguments\": {\"ref\": \"P-43\", \"origin\": \"dock-9\", \"dest\": \"dock-3\"}}"}
+{"id": "heldout-0184", "output": "{\"name\": \"tune_rexpuxre\", \"arguments\": {\"item\": \"F-88\", \"reading\": 950}}"}
+{"id": "heldout-0185", "output": "{\"name\": \"raise_dommapu\", \"arguments\": {\"ref\": \"F-87\", \"amount\": -5}}"}
+{"id": "heldout-0186", "output": "{\"name\": \"shift_dikner\", \"arguments\": {\"ref\": \"F-44\", \"from_id\": \"zone-5\", \"to_id\": \"zone-4\"}}"}
+{"id": "heldout-0187", "output": "{\"name\": \"set_kirza\", \"arguments\": {\"subject\": \"F-96\", \"reading\": 370}}"}
+{"id": "heldout-0188", "output": "{\"name\": \"shift_ginmex\", \"arguments\": {\"ref\": \"P-80\", \"src\": \"dock-8\", \"dst\": \"dock-1\"}}"}
+{"id": "heldout-0189", "output": "{\"name\": \"relocate_rizekno\", \"arguments\": {\"item\": \"P-49\", \"source\": \"dock-1\", \"target\": \"dock-7\"}}"}
+{"id": "heldout-0190", "output": "{\"name\": \"set_kirza\", \"arguments\": {\"subject\": \"F-88\", \"reading\": 920}}"}
+{"id": "heldout-0191", "output": "{\"name\": \"shift_nukquuk\", \"arguments\": {\"ref\": \"F-88\", \"src\": \"zone-9\", \"dst\": \"zone-7\"}}"}
+{"id": "heldout-0192", "output": "{\"name\": \"relocate_gurzavax\", \"arguments\": {\"entry\": \"B-98\", \"src\": \"sector-1\", \"dst\": \"sector-2\"}}"}
+{"id": "heldout-0193", "output": "{\"name\": \"carry_goxsenthek\", \"arguments\": {\"ref\": \"P-21\", \"origin\": \"dock-9\", \"dest\": \"dock-1\"}}"}
+{"id": "heldout-0194", "output": "{\"name\": \"tune_rexpuxre\", \"arguments\": {\"item\": \"F-97\", \"reading\": 39}}"}
+{"id": "heldout-0195", "output": "{\"name\": \"shift_ginmex\", \"arguments\": {\"ref\": \"P-23\", \"src\": \"dock-2\", \"dst\": \"dock-6\"}}"}
+{"id": "heldout-0196", "output": "{\"name\": \"shift_nukquuk\", \"arguments\": {\"ref\": \"F-13\", \"src\": \"zone-4\", \"dst\": \"zone-6\"}}"}
+{"id": "heldout-0197", "output": "{\"name\": \"increase_sonthem\", \"arguments\": {\"item\": \"P-79\", \"change\": -25}}"}
+{"id": "heldout-0198", "output": "{\"name\": \"fix_zorthorbon\", \"arguments\": {\"entry\": \"P-10\", \"reading\": 600}}"}
+{"id": "heldout-0199", "output": "{\"name\": \"retrieve_thumgak\", \"arguments\": {\"subject\": \"B-38\", \"origin\": \"sector-2\", \"dest\": \"sector-9\"}}"}
